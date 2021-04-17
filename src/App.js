@@ -2,6 +2,7 @@ import "./styles.css";
 import Login from "./Login";
 import Badge from "./Badge";
 import Welcome from "./Welcome";
+import { Switch, Route } from "react-router-dom";
 
 // const data = {
 //   college: "University of Michigan",
@@ -19,6 +20,18 @@ export default function App() {
   return (
     <div className="App">
       <Welcome />
+
+      <Switch>
+        <Route></Route>
+
+        <Route></Route>
+
+        <Route></Route>
+
+        <Route></Route>
+
+        <Route></Route>
+      </Switch>
       <br />
       <br />
       <br />

@@ -10,6 +10,6 @@ ReactDOM.render(
     <StrictMode>
       <App />
     </StrictMode>
-  <BrowserRouter>,
+  </BrowserRouter>,
   rootElement
 );
