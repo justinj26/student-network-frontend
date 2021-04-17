@@ -1,3 +1,5 @@
+
+import React from "react";
 import Login from "./Login";
 import Button from "@material-ui/core/Button";
 import { Link as RouterLink } from "react-router-dom";
@@ -13,7 +15,7 @@ export default function Welcome() {
         <br />
         <h5>No account?</h5>
         
-        <Button variant="contained" color="primary" component={RouterLink} to="">
+        <Button variant="contained" color="primary" component={RouterLink} to="/signup">
           Sign Up!
         </Button>
       </div>

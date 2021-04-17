@@ -2,6 +2,7 @@ import "./styles.css";
 import Login from "./Login";
 import Badge from "./Badge";
 import Welcome from "./Welcome";
+import SignUp from "./SignUp";
 import { Switch, Route } from "react-router-dom";
 
 // const data = {
@@ -22,7 +23,9 @@ export default function App() {
       <Welcome />
 
       <Switch>
-        <Route></Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
 
         <Route></Route>
 

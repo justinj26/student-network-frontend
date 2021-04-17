@@ -4,15 +4,16 @@
 
 // it seems that how to render the badge will depend on
 // whether it comes over as a prop, or come through the state
+
 import styles from "./Badge.module.css";
-import Avatar from "./Avatar";
+// import Avatar from "./Avatar";
 const React = require("react");
 
-const data = {
-  college: "University of Michigan",
-  major: "Computer Science",
-  extracuriculars: ["Aerospace Engineering", "Dungeons and Dragons"]
-};
+// const data = {
+//   college: "University of Michigan",
+//   major: "Computer Science",
+//   extracuriculars: ["Aerospace Engineering", "Dungeons and Dragons"]
+// };
 
 class Badge extends React.Component {
   constructor(props) {
