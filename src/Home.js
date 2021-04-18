@@ -3,13 +3,25 @@ import HomePageBadgeGrid from "./HomePageBadgeGrid";
 import Button from "@material-ui/core/Button";
 import styles from "./Home.module.css";
 
+const url = "/userprofile";
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      newUser: {}
+      data: {}
     };
+  }
+
+  async componenetDidMount() {
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      this.setState({ data: json });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {

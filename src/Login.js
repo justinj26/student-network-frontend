@@ -1,7 +1,7 @@
 // Login page
 import styles from "./Login.module.css";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import Button from "@material-ui/core/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
@@ -13,7 +13,8 @@ class Login extends React.Component {
     this.state = {
       email: "",
       password: "",
-      hidden: true
+      hidden: true,
+      validated: false
     };
 
     this.handleEmail = this.handleEmail.bind(this);
@@ -31,11 +32,22 @@ class Login extends React.Component {
 
   handleSubmit(event) {
     alert("submitted");
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     event.preventDefault();
+    this.setState({ validated: true });
+  }
     // might not be a bad time for a get request /
     // this login information might be passed to the
     // the rest of the app
-  }
+    // post request
+    // thought: will need to be able to take errors from backend
+    // and then display those errors.
+  
 
   render() {
     return (
@@ -46,19 +58,26 @@ class Login extends React.Component {
               Email
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="email" placeholder="Email" />
+              <Form.Control type="email" placeholder="Email" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
             </Col>
           </Form.Group>
-
+          <br />
           <Form.Group as={Row} controlId="formHorizontalPassword">
             <Form.Label column sm={2}>
               Password
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" placeholder="Password" required />
+              <br />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
             </Col>
           </Form.Group>
-
+          <br />
           <Form.Group as={Row} controlId="formHorizontalCheck">
             <Col sm={{ span: 10, offset: 2 }}>
               <Form.Check label="Remember me" />
@@ -67,9 +86,9 @@ class Login extends React.Component {
 
           <Form.Group as={Row}>
             <Col sm={{ span: 10, offset: 2 }}>
-              <Button variant="primary" type="submit">
+              <Button variant="contained" color="primary" type="submit">
                 Sign in
-              </Button>{" "}
+              </Button>
             </Col>
           </Form.Group>
         </Form>

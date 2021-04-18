@@ -11,10 +11,13 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      validated: false
+    };
 
     this.onFinish = this.onFinish.bind(this);
     this.onFinishFailed = this.onFinishFailed.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onFinish(values) {
@@ -24,6 +27,19 @@ class SignUp extends React.Component {
   onFinishFailed(errorInfo) {
     console.log("Failed:", errorInfo);
   }
+
+  handleSubmit(event) {
+    alert("submitted");
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  
+    event.preventDefault();
+    this.setState({ validated: true });
+  }
+  
 
   render() {
 
@@ -35,7 +51,10 @@ class SignUp extends React.Component {
               Name:
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="email" placeholder="Email" />
+              <Form.Control type="email" placeholder="Email" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
             </Col>
           </Form.Group>
 
@@ -46,7 +65,10 @@ class SignUp extends React.Component {
               
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" placeholder="Password" required />
+              <Form.Control.Feedback type="invalid">
+              {/* username or password not recognized */}
+            </Form.Control.Feedback>
             </Col>
           </Form.Group>
 
@@ -64,7 +86,7 @@ class SignUp extends React.Component {
               <br />
               <Button variant="contained" color="primary" type="submit">
                 Sign Up
-              </Button>{" "}
+              </Button>
             </Col>
           </Form.Group>
         </Form>
