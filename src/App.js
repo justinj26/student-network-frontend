@@ -3,6 +3,7 @@ import Login from "./Login";
 import Badge from "./Badge";
 import Welcome from "./Welcome";
 import SignUp from "./SignUp";
+import Home from "./Home";
 import { Switch, Route } from "react-router-dom";
 
 // const data = {
@@ -18,16 +19,22 @@ export default function App() {
     extras: ["Aerospace Engineering", "Dungeons and Dragons"]
   };
 
+  // some setup, to where if a user is present, go to home page
+  // if not, go to Welcome page
+
   return (
     <div className="App">
-      <Welcome />
+      <Home />
 
       <Switch>
         <Route path="/signup">
           <SignUp />
         </Route>
 
-        <Route></Route>
+        <Route path="/home">
+          {/* user here */}
+          <Home />
+        </Route>
 
         <Route></Route>
 
@@ -45,6 +52,7 @@ export default function App() {
       <br />
       <br />
       <br />
+      <Welcome />
       <Login />
       <Badge user={data} />
     </div>

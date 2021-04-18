@@ -47,8 +47,8 @@ class Badge extends React.Component {
       <div className={styles.badge_box}>
         {/* <Avatar /> */}
 
-        <p>{this.props.user.college}</p>
-        <p>{this.props.user.major}</p>
+        <p>College: {this.props.user.college}</p>
+        <p>Major: {this.props.user.major}</p>
         {/* <div>
           Extracurriculars:
           <div>{this.props.user.extras.forEach(extra) { return <p>extra</p> } </div>
