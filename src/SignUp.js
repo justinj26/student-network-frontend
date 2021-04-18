@@ -2,6 +2,7 @@
 import { Form, Col, Row } from "react-bootstrap";
 import styles from "./SignUp.module.css";
 import Button from "@material-ui/core/Button";
+import country_names from "./countries";
 
 const axios = require("axios");
 const React = require("react");
@@ -20,12 +21,10 @@ class SignUp extends React.Component {
         email: "",
         password: ""
       },
-      user_info: {
-        data: {
-          Nationality: "",
-          Interests: ["", ""],
-          "Contact Number": ["", ""]
-        }
+      data: {
+        Nationality: "",
+        Interests: ["", ""],
+        "Contact Number": ["", ""]
       },
       validated: false
     };
@@ -34,6 +33,11 @@ class SignUp extends React.Component {
     this.handleLast = this.handleLast.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
+    this.handleNationality = this.handleNationality.bind(this);
+    this.handleContact1 = this.handleContact1.bind(this);
+    this.handleContact2 = this.handleContact2.bind(this);
+    this.handleInterest1 = this.handleInsterest1.bind(this);
+    this.handleInterest2 = this.handleInterest2.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -48,6 +52,21 @@ class SignUp extends React.Component {
   }
   handlePassword(event) {
     this.setState({ user: { password: event.target.value } });
+  }
+  handleNationality(event) {
+    this.setState({ data: { Nationality: event.target.value } });
+  }
+  handleContact1(event) {
+    this.setState({ data: { "Contact Number": event.target.value } });
+  }
+  handleContact2(event) {
+    this.setState({ data: { "Contact Number": event.target.value } });
+  }
+  handleInterest1(event) {
+    this.setState({ data: { Interests: event.target.value } });
+  }
+  handleInterest2(event) {
+    this.setState({ data: { Interests: event.target.value } });
   }
 
   async handleSubmit(event) {
@@ -85,7 +104,7 @@ class SignUp extends React.Component {
               First Name:
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="text" placeholder="First name" required />
+              <Form.Control type="text" placeholder="First Name" required />
               <Form.Control.Feedback type="invalid">
                 {/* username or password not recognized */}
               </Form.Control.Feedback>
@@ -97,7 +116,7 @@ class SignUp extends React.Component {
               Last Name:
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="text" placeholder="Email" required />
+              <Form.Control type="text" placeholder="Last Name" required />
               <Form.Control.Feedback type="invalid">
                 {/* username or password not recognized */}
               </Form.Control.Feedback>
@@ -136,40 +155,63 @@ class SignUp extends React.Component {
               Primary Phone:
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="tel" placeholder="Email" required />
+              <Form.Control
+                type="tel"
+                placeholder="Format: 555-555-5555"
+                required
+              />
               <Form.Control.Feedback type="invalid">
                 {/* username or password not recognized */}
               </Form.Control.Feedback>
             </Col>
           </Form.Group>
+          <br />
           <Form.Group as={Row} controlId="formHorizontalEmail">
             <Form.Label column sm={2}>
               Secondary phone:
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="tel" placeholder="Email" required />
+              <Form.Control
+                type="tel"
+                placeholder="Format: 555-555-5555"
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Nationality:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control as="select" custom>
+                {country_names.map((country) => (
+                  <option>{country}</option>
+                ))}
+              </Form.Control>
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Interests
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="select" placeholder="Interest 1" required />
               <Form.Control.Feedback type="invalid">
                 {/* username or password not recognized */}
               </Form.Control.Feedback>
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId="formHorizontalEmail">
-            <Form.Label column sm={2}>
-              Email:
-            </Form.Label>
+            {/* <Form.Label column sm={2}>
+              Ema
+            </Form.Label> */}
             <Col sm={10}>
-              <Form.Control type="select" placeholder="Email" required />
-              <Form.Control.Feedback type="invalid">
-                {/* username or password not recognized */}
-              </Form.Control.Feedback>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId="formHorizontalEmail">
-            <Form.Label column sm={2}>
-              Email:
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control type="email" placeholder="Email" required />
+              <Form.Control type="email" placeholder="Interest 2" required />
               <Form.Control.Feedback type="invalid">
                 {/* username or password not recognized */}
               </Form.Control.Feedback>

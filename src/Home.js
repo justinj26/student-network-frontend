@@ -2,7 +2,7 @@ import React from "react";
 import HomePageBadgeGrid from "./HomePageBadgeGrid";
 import Button from "@material-ui/core/Button";
 import styles from "./Home.module.css";
-
+import axios from "axios";
 const url = "/userprofile";
 
 class Home extends React.Component {
@@ -16,7 +16,7 @@ class Home extends React.Component {
 
   async componenetDidMount() {
     try {
-      const response = await fetch(url);
+      const response = await axios.get(url);
       const json = await response.json();
       this.setState({ data: json });
     } catch (error) {
