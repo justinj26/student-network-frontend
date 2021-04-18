@@ -52,6 +52,7 @@ export default function App() {
       <br />
       <br />
       <br />
+      <SignUp />
       <Welcome />
       <Login />
       <Badge user={data} />
