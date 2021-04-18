@@ -2,6 +2,7 @@ import "./styles.css";
 import Login from "./Login";
 import Badge from "./Badge";
 import Welcome from "./Welcome";
+import Profile from "./Profile";
 import SignUp from "./SignUp";
 import Home from "./Home";
 import { Switch, Route } from "react-router-dom";
@@ -36,10 +37,18 @@ export default function App() {
           <Home />
         </Route>
 
-        <Route></Route>
+        <Route path="/welcome">
+          <Welcome />
+        </Route>
+
+        <Route path="/profile">
+          <Profile />
+        </Route>
 
         <Route></Route>
-
+        
+        <Route></Route>
+        
         <Route></Route>
       </Switch>
       <br />
