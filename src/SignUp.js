@@ -3,9 +3,11 @@ import { Form, Col, Row } from "react-bootstrap";
 import styles from "./SignUp.module.css";
 import Button from "@material-ui/core/Button";
 
+const axios = require("axios");
 const React = require("react");
 // thought: user likely from a different page
 const user = {};
+const url = "/signup";
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -15,7 +17,15 @@ class SignUp extends React.Component {
       user: {
         first_name: "",
         last_name: "",
-        email: ""
+        email: "",
+        password: ""
+      },
+      user_info: {
+        data: {
+          Nationality: "",
+          Interests: ["", ""],
+          "Contact Number": ["", ""]
+        }
       },
       validated: false
     };
@@ -57,6 +67,12 @@ class SignUp extends React.Component {
       password: this.state.password
     };
 
+    try {
+      axios.post(url, user);
+    } catch (error) {
+      alert(error.message);
+    }
+
     this.setState({ validated: true });
   }
 
@@ -87,9 +103,10 @@ class SignUp extends React.Component {
               </Form.Control.Feedback>
             </Col>
           </Form.Group>
+          <br />
           <Form.Group as={Row} controlId="formHorizontalEmail">
             <Form.Label column sm={2}>
-              Name:
+              Email:
             </Form.Label>
             <Col sm={10}>
               <Form.Control type="email" placeholder="Email" required />
@@ -102,7 +119,9 @@ class SignUp extends React.Component {
           <br />
 
           <Form.Group as={Row} controlId="formHorizontalPassword">
-            <Form.Label column sm={2}></Form.Label>
+            <Form.Label column sm={2}>
+              Password:
+            </Form.Label>
             <Col sm={10}>
               <Form.Control type="password" placeholder="Password" required />
               <Form.Control.Feedback type="invalid">
@@ -112,7 +131,51 @@ class SignUp extends React.Component {
           </Form.Group>
 
           <br />
-
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Primary Phone:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="tel" placeholder="Email" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Secondary phone:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="tel" placeholder="Email" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Email:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="select" placeholder="Email" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Email:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="email" placeholder="Email" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <br />
           <Form.Group as={Row} controlId="formHorizontalCheck">
             <Col sm={{ span: 10, offset: 2 }}>
               <Form.Check label="Remember me" />
