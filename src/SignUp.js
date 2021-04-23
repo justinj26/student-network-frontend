@@ -10,6 +10,9 @@ const React = require("react");
 const user = {};
 const url = "/signup";
 
+const student_status = ["High School", "Undergraduate", "Graduate"];
+const years = ["1", "2", "3", "4"];
+
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +27,16 @@ class SignUp extends React.Component {
       data: {
         Nationality: "",
         Interests: ["", ""],
-        "Contact Number": ["", ""]
+        "Contact Number": ["", ""],
+        student_status: "",
+        location: {
+          country: "",
+          state: "",
+          city: ""
+        },
+        potential_major: "",
+        extracurriculars: "",
+        fun_fact: ""
       },
       validated: false
     };
@@ -38,6 +50,7 @@ class SignUp extends React.Component {
     this.handleContact2 = this.handleContact2.bind(this);
     this.handleInterest1 = this.handleInterest1.bind(this);
     this.handleInterest2 = this.handleInterest2.bind(this);
+    this.handleStudentStatus = this.handleStudentStatus.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -69,6 +82,10 @@ class SignUp extends React.Component {
     this.setState({ data: { Interests: event.target.value } });
   }
 
+  handleStudentStatus(event) {
+    this.setState({ data: { "Student Status": event.target.value } });
+  }
+
   async handleSubmit(event) {
     alert("submitted");
     const form = event.currentTarget;
@@ -96,6 +113,10 @@ class SignUp extends React.Component {
   }
 
   render() {
+    let years_filter =
+      this.state.data.student_statuses === "Graduate"
+        ? years.slice(0, 3)
+        : years;
     return (
       <div className={styles.form_box}>
         <Form>
@@ -221,6 +242,130 @@ class SignUp extends React.Component {
           <Form.Group as={Row} controlId="formHorizontalCheck">
             <Col sm={{ span: 10, offset: 2 }}>
               <Form.Check label="Remember me" />
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Last Name:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="text" placeholder="Last Name" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Last Name:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="text" placeholder="Last Name" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Name:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="text" placeholder="Last Name" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label sm={2}>Student Status: </Form.Label>
+            {/* <Col sm={10}> */}
+            <Form.Control as="select" custom>
+              {student_status.map((country) => (
+                <option>{country}</option>
+              ))}
+            </Form.Control>
+            {/* </Col> */}
+          </Form.Group>
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label sm={2}>Year: </Form.Label>
+            {/* <Col sm={10}> */}
+            <Form.Control as="select" custom>
+              {years_filter.map((num) => (
+                <option>{num}</option>
+              ))}
+            </Form.Control>
+            {/* </Col> */}
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              School Name:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="text" placeholder="Last Name" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Potential major:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="text" placeholder="Last Name" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Extracurriculars:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control as="select" custom>
+                {country_names.map((country) => (
+                  <option>{country}</option>
+                ))}
+              </Form.Control>
+            </Col>
+            <Col sm={10}>
+              <Form.Control
+                type="text"
+                placeholder="Extracurricular"
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+              <Form.Control type="text" placeholder="Last Name" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+              <Form.Control type="text" placeholder="Last Name" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Fun fact:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="textarea" placeholder="Fun fact" required />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
             </Col>
           </Form.Group>
 
