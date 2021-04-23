@@ -36,7 +36,7 @@ class SignUp extends React.Component {
     this.handleNationality = this.handleNationality.bind(this);
     this.handleContact1 = this.handleContact1.bind(this);
     this.handleContact2 = this.handleContact2.bind(this);
-    this.handleInterest1 = this.handleInsterest1.bind(this);
+    this.handleInterest1 = this.handleInterest1.bind(this);
     this.handleInterest2 = this.handleInterest2.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

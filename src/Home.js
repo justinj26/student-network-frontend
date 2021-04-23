@@ -36,7 +36,7 @@ class Home extends React.Component {
         <div classname={styles.button_row}>
           <Button variant="outlined">Home</Button>
           <Button variant="outlined">Profile</Button>
-          <Button variant="outlined"></Button>
+          <Button variant="outlined">Menotrs</Button>
         </div>
 
         <div>
