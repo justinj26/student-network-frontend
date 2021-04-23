@@ -3,6 +3,7 @@ import { Form, Col, Row } from "react-bootstrap";
 import styles from "./SignUp.module.css";
 import Button from "@material-ui/core/Button";
 import country_names from "./countries";
+import majors from "./majors";
 
 const axios = require("axios");
 const React = require("react");
@@ -319,10 +320,11 @@ class SignUp extends React.Component {
               Potential major:
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="text" placeholder="Last Name" required />
-              <Form.Control.Feedback type="invalid">
-                {/* username or password not recognized */}
-              </Form.Control.Feedback>
+              <Form.Control as="select" custom>
+                {majors.map((major) => (
+                  <option>{major}</option>
+                ))}
+              </Form.Control>
             </Col>
           </Form.Group>
           <br />
