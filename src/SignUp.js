@@ -15,7 +15,7 @@ const url = "/signup";
 
 const student_status = ["High School", "Undergraduate", "Graduate"];
 const years = ["1", "2", "3", "4"];
-const countries = Object.keys(countries_json).append("");
+const countries = Object.keys(countries_json);
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -256,7 +256,7 @@ class SignUp extends React.Component {
               <Form.Control
                 type="text"
                 value={this.state.data.nationality}
-                placeholder="format"
+                placeholder="format: city, state (if applicable)"
                 required
               ></Form.Control>
             </Col>
