@@ -246,6 +246,7 @@ class SignUp extends React.Component {
                 value={this.state.data.nationality}
                 onChange={this.handleNationality}
                 custom
+                required
               >
                 {countries.map((country) => (
                   <option>{country}</option>
@@ -278,6 +279,7 @@ class SignUp extends React.Component {
               value={this.state.data.student_status}
               onChange={this.handleStudentStatus}
               custom
+              required
             >
               {student_status.map((niveau) => (
                 <option>{niveau}</option>
@@ -293,6 +295,7 @@ class SignUp extends React.Component {
               value={this.state.data.year}
               onChange={this.handleStudentYear}
               custom
+              required
             >
               {years_filter.map((num) => (
                 <option>{num}</option>
