@@ -1,4 +1,4 @@
-import Navbar from "react-bootstrap/Navbar";
+// import Navbar from "react-bootstrap/Navbar";
 import React from "react";
 import HomePageBadgeGrid from "./HomePageBadgeGrid";
 import Button from "@material-ui/core/Button";
@@ -7,17 +7,30 @@ import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
+import { Row, Col } from "antd";
+import { ButtonToolbar, ButtonGroup } from "react-bootstrap";
+
 
 const url = "/userprofile";
+const users = [
+{
 
+},
+{
+
+},
+];
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: {}
+      data: {},
+      mentor_interface: false
     };
+
+    // this.handleInterface = this.handleInterface.bind(this);
   }
 
   async componenetDidMount() {
@@ -30,6 +43,10 @@ class Home extends React.Component {
     }
   }
 
+  // handleInterface() {
+  //   this.setState({ mentor_interface: !this.state.mentor_interface})
+  // }
+
   render() {
     // as a note for this page
     // one can use a series of divs,
@@ -40,21 +57,14 @@ class Home extends React.Component {
     return (
       <div>
         <div classname={styles.button_row}>
-        <Navbar bg="light" variant="light">
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-    </Nav>
-    <Form inline>
-      <Form.Control type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-primary">Search</Button>
-    </Form>
-  </Navbar>
-          <Button variant="outlined">Home</Button>
-          <Button variant="outlined">Profile</Button>
-          <Button variant="outlined">Menotrs</Button>
+        <ButtonToolbar aria-label="Toolbar with button groups">
+          <ButtonGroup className="mr-2" aria-label="First group">
+            <Button variant="outlined">Home</Button>
+            <Button variant="outlined">Profile</Button>
+            <Button variant="outlined">Menotrs</Button>
+            <Button variant="outlined">Switch to: {this.state.interace === false ? "Mentor Interface" : "Mentee interface"}</Button>
+          </ButtonGroup>
+        </ButtonToolbar>
         </div>
 
         <div>

@@ -15,6 +15,8 @@ import { Switch, Route } from "react-router-dom";
 
 export default function App() {
   const data = {
+    first_name: "Ike",
+    last_name: "Boxton",
     college: "University of Michigan",
     major: "Computer Science",
     extras: ["Aerospace Engineering", "Dungeons and Dragons"]
