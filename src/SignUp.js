@@ -34,12 +34,8 @@ class SignUp extends React.Component {
         // : ["", ""],
         telephone: "",
         student_status: "",
-        year: "",
-        location: {
-          country: "",
-          state: "",
-          city: ""
-        },
+        student_year: "",
+        location_city: "",
         school_name: "",
         potential_major: "",
         extracurricular1: "",
@@ -55,11 +51,16 @@ class SignUp extends React.Component {
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handleNationality = this.handleNationality.bind(this);
-    this.handleContact1 = this.handleContact1.bind(this);
-    this.handleContact2 = this.handleContact2.bind(this);
-    this.handleInterest1 = this.handleInterest1.bind(this);
-    this.handleInterest2 = this.handleInterest2.bind(this);
+    this.handleTelephone = this.handleTelephone.bind(this);
+    this.handleExtracurricular1 = this.handleExtracurricular1.bind(this);
+    this.handleExtracurricular2 = this.handleExtracurricular2.bind(this);
+    this.handleExtracurricular3 = this.handleExtracurricular3.bind(this);
     this.handleStudentStatus = this.handleStudentStatus.bind(this);
+    this.handleStudentYear = this.handleStudentYear.bind(this);
+    this.handleFunFact = this.handleFunFact.bind(this);
+    this.handlePotentialMajor = this.handlePotentialMajor.bind(this);
+    this.handleSchoolName = this.handleSchoolName.bind(this);
+    this.handleLocationCity = this.handleLocationCity.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -76,23 +77,37 @@ class SignUp extends React.Component {
     this.setState({ user: { password: event.target.value } });
   }
   handleNationality(event) {
-    this.setState({ data: { Nationality: event.target.value } });
+    this.setState({ data: { nationality: event.target.value } });
   }
-  handleContact1(event) {
-    this.setState({ data: { "Contact Number": event.target.value } });
+  handleTelephone(event) {
+    this.setState({ data: { telephone: event.target.value } });
   }
-  handleContact2(event) {
-    this.setState({ data: { "Contact Number": event.target.value } });
+  handleExtracurricular1(event) {
+    this.setState({ data: { extracurricular1: event.target.value } });
   }
-  handleInterest1(event) {
-    this.setState({ data: { Interests: event.target.value } });
+  handleExtracurricular2(event) {
+    this.setState({ data: { extracurricular2: event.target.value } });
   }
-  handleInterest2(event) {
-    this.setState({ data: { Interests: event.target.value } });
+  handleExtracurricular3(event) {
+    this.setState({ data: { extracurricular3: event.target.value } });
   }
-
   handleStudentStatus(event) {
-    this.setState({ data: { "Student Status": event.target.value } });
+    this.setState({ data: { student_status: event.target.value } });
+  }
+  handleStudentYear(event) {
+    this.setState({ data: { student_year: event.target.value } });
+  }
+  handleFunFact(event) {
+    this.setState({ data: { fun_fact: event.target.value } });
+  }
+  handlePotentialMajor(event) {
+    this.setState({ data: { potential_major: event.target.value } });
+  }
+  handleSchoolName(event) {
+    this.setState({ data: { school_name: event.target.value } });
+  }
+  handleLocationCity(event) {
+    this.setState({ data: { location_city: event.target.value } });
   }
 
   async handleSubmit(event) {
@@ -138,6 +153,7 @@ class SignUp extends React.Component {
               <Form.Control
                 type="text"
                 value={this.state.user.first_name}
+                onChange={this.handleFirst}
                 placeholder="First Name"
                 required
               />
@@ -156,6 +172,7 @@ class SignUp extends React.Component {
                 type="text"
                 placeholder="Last Name"
                 value={this.state.user.last_name}
+                onChange={this.handleLast}
                 required
               />
               <Form.Control.Feedback type="invalid">
@@ -172,6 +189,7 @@ class SignUp extends React.Component {
               <Form.Control
                 type="email"
                 value={this.state.user.email}
+                onChange={this.handleEmail}
                 placeholder="Email"
                 required
               />
@@ -189,6 +207,7 @@ class SignUp extends React.Component {
               <Form.Control
                 type="password"
                 value={this.state.user.password}
+                onChange={this.handlePassword}
                 placeholder="Password"
                 required
               />
@@ -206,6 +225,7 @@ class SignUp extends React.Component {
               <Form.Control
                 type="tel"
                 value={this.state.data.telephone}
+                onChange={this.handleTelephone}
                 placeholder="Format: 555-555-5555"
                 required
               />
@@ -214,24 +234,8 @@ class SignUp extends React.Component {
               </Form.Control.Feedback>
             </Col>
           </Form.Group>
-          {/* <br />
-          <Form.Group as={Row} controlId="formHorizontalEmail">
-            <Form.Label column sm={2}>
-              Secondary phone:
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control
-                type="tel"
-                value={this.state.data.}
-                placeholder="Format: 555-555-5555"
-                required
-              />
-              <Form.Control.Feedback type="invalid">
-                {/* username or password not recognized */}
-          {/* </Form.Control.Feedback>
-            </Col>
-          </Form.Group> */}
-          <br /> */}
+
+          <br />
           <Form.Group as={Row} controlId="formHorizontalEmail">
             <Form.Label column sm={2}>
               Nationality:
@@ -240,6 +244,7 @@ class SignUp extends React.Component {
               <Form.Control
                 as="select"
                 value={this.state.data.nationality}
+                onChange={this.handleNationality}
                 custom
               >
                 {countries.map((country) => (
@@ -248,6 +253,7 @@ class SignUp extends React.Component {
               </Form.Control>
             </Col>
           </Form.Group>
+          <br />
           <Form.Group as={Row} controlId="formHorizontalEmail">
             <Form.Label column sm={2}>
               Hometown:
@@ -255,94 +261,14 @@ class SignUp extends React.Component {
             <Col sm={10}>
               <Form.Control
                 type="text"
-                value={this.state.data.nationality}
-                placeholder="format: city, state (if applicable)"
+                value={this.state.data.location_city}
+                onChange={this.handleLocationCity}
+                placeholder="Format: city, state (if applicable)"
                 required
               ></Form.Control>
             </Col>
           </Form.Group>
-          {/* <br />
-          <Form.Group as={Row} controlId="formHorizontalEmail">
-            <Form.Label column sm={2}>
-              Interests
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control type="select" value={this.state.data.} placeholder="Interest 1" required />
-              <Form.Control.Feedback type="invalid">
-                {/* username or password not recognized */}
-          {/* </Form.Control.Feedback>
-            </Col>
-          </Form.Group> */}{" "}
-          */}
-          {/* <Form.Group as={Row} controlId="formHorizontalEmail">
-            {/* <Form.Label column sm={2}>
-              Ema
-            </Form.Label> */}
-          {/* <Col sm={10}>
-              <Form.Control type="email" value={this.state.data.} placeholder="Interest 2" required />
-              <Form.Control.Feedback type="invalid">
-                {/* username or password not recognized */}
-          {/* </Form.Control.Feedback>
-            </Col>
-          // </Form.Group> */}{" "}
-          */} */}
-          <br />
-          <Form.Group as={Row} controlId="formHorizontalCheck">
-            <Col sm={{ span: 10, offset: 2 }}>
-              <Form.Check label="Remember me" />
-            </Col>
-          </Form.Group>
-          <br />
-          <Form.Group as={Row} controlId="formHorizontalEmail">
-            <Form.Label column sm={2}>
-              Last Name:
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control
-                type="text"
-                value={this.state.data.last_name}
-                placeholder="Last Name"
-                required
-              />
-              <Form.Control.Feedback type="invalid">
-                {/* username or password not recognized */}
-              </Form.Control.Feedback>
-            </Col>
-          </Form.Group>
-          <br />
-          <Form.Group as={Row} controlId="formHorizontalEmail">
-            <Form.Label column sm={2}>
-              Last Name:
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control
-                type="text"
-                value={this.state.data.last_name}
-                placeholder="Last Name"
-                required
-              />
-              <Form.Control.Feedback type="invalid">
-                {/* username or password not recognized */}
-              </Form.Control.Feedback>
-            </Col>
-          </Form.Group>
-          <br />
-          <Form.Group as={Row} controlId="formHorizontalEmail">
-            <Form.Label column sm={2}>
-              Name:
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control
-                type="text"
-                value={this.state.data.name}
-                placeholder="Last Name"
-                required
-              />
-              <Form.Control.Feedback type="invalid">
-                {/* username or password not recognized */}
-              </Form.Control.Feedback>
-            </Col>
-          </Form.Group>
+
           <br />
           <Form.Group as={Row} controlId="formHorizontalEmail">
             <Form.Label sm={2}>Student Status: </Form.Label>
@@ -350,6 +276,7 @@ class SignUp extends React.Component {
             <Form.Control
               as="select"
               value={this.state.data.student_status}
+              onChange={this.handleStudentStatus}
               custom
             >
               {student_status.map((niveau) => (
@@ -361,13 +288,23 @@ class SignUp extends React.Component {
           <Form.Group as={Row} controlId="formHorizontalEmail">
             <Form.Label sm={2}>Year: </Form.Label>
             {/* <Col sm={10}> */}
-            <Form.Control as="select" value={this.state.data.year} custom>
+            <Form.Control
+              as="select"
+              value={this.state.data.year}
+              onChange={this.handleStudentYear}
+              custom
+            >
               {years_filter.map((num) => (
                 <option>{num}</option>
               ))}
             </Form.Control>
             {/* </Col> */}
           </Form.Group>
+          <br />
+          <h3>
+            If in high school, feel free to fill out these next questions with
+            college in mind!!!
+          </h3>
           <br />
           <Form.Group as={Row} controlId="formHorizontalEmail">
             <Form.Label column sm={2}>
@@ -377,7 +314,8 @@ class SignUp extends React.Component {
               <Form.Control
                 type="text"
                 value={this.state.data.school_name}
-                placeholder="Last Name"
+                onChange={this.handleSchoolName}
+                placeholder="School Name"
                 required
               />
               <Form.Control.Feedback type="invalid">
@@ -394,6 +332,7 @@ class SignUp extends React.Component {
               <Form.Control
                 as="select"
                 value={this.state.data.potential_major}
+                onChange={this.handlePotentialMajor}
                 custom
               >
                 {majors.sort().map((major) => (
@@ -411,6 +350,7 @@ class SignUp extends React.Component {
               <Form.Control
                 as="select"
                 value={this.state.data.extracurricular1}
+                onChange={this.handleExtracurricular1}
                 custom
               >
                 {extracurriculars.sort().map((extracurricular) => (
@@ -423,6 +363,7 @@ class SignUp extends React.Component {
               <Form.Control
                 as="select"
                 value={this.state.data.extracurricular2}
+                onChange={this.handleExtracurricular2}
                 custom
               >
                 {extracurriculars.sort().map((extracurricular) => (
@@ -435,6 +376,7 @@ class SignUp extends React.Component {
               <Form.Control
                 as="select"
                 value={this.state.data.extracurricular3}
+                onChange={this.handleExtracurricular3}
                 custom
               >
                 {extracurriculars.sort().map((extracurricular) => (
@@ -456,6 +398,7 @@ class SignUp extends React.Component {
                 as="textarea"
                 type="textarea"
                 value={this.state.data.fun_fact}
+                onChange={this.handleFunFact}
                 placeholder="Fun fact"
                 required
               />
@@ -467,8 +410,19 @@ class SignUp extends React.Component {
           <Form.Group as={Row}>
             <Col sm={{ span: 10, offset: 2 }}>
               {/* // material-ui button */}
+
               <br />
-              <Button variant="contained" color="primary" type="submit">
+              <Form.Group as={Row} controlId="formHorizontalCheck">
+                <Col sm={{ span: 10, offset: 2 }}>
+                  <Form.Check label="Remember me" />
+                </Col>
+              </Form.Group>
+              <Button
+                variant="contained"
+                color="primary"
+                onChange={this.handleSubmit}
+                type="submit"
+              >
                 Sign Up
               </Button>
             </Col>
