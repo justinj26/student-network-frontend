@@ -1,6 +1,8 @@
+
+import React from "react";
 import Login from "./Login";
-import Button from "react-bootstrap/Button";
-import Link from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Welcome() {
   return (
@@ -12,8 +14,8 @@ export default function Welcome() {
         <Login />
         <br />
         <h5>No account?</h5>
-
-        <Button variant="primary" className="btn-primary">
+        
+        <Button variant="contained" color="primary" component={RouterLink} to="/signup">
           Sign Up!
         </Button>
       </div>

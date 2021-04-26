@@ -1,0 +1,78 @@
+// import Navbar from "react-bootstrap/Navbar";
+import React from "react";
+import HomePageBadgeGrid from "./HomePageBadgeGrid";
+import Button from "@material-ui/core/Button";
+import styles from "./Home.module.css";
+import axios from "axios";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Form from "react-bootstrap/Form";
+import { Row, Col } from "antd";
+import { ButtonToolbar, ButtonGroup } from "react-bootstrap";
+
+
+const url = "/userprofile";
+const users = [
+{
+  
+},
+{
+
+},
+];
+
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {},
+      mentor_interface: false
+    };
+
+    // this.handleInterface = this.handleInterface.bind(this);
+  }
+
+  async componenetDidMount() {
+    try {
+      const response = await axios.get(url);
+      const json = await response.json();
+      this.setState({ data: json });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // handleInterface() {
+  //   this.setState({ mentor_interface: !this.state.mentor_interface})
+  // }
+
+  render() {
+    // as a note for this page
+    // one can use a series of divs,
+    // and then have those divs as having
+    // various relative positions
+    // might be time to look up / research responsive design
+    // might want to use components for individual parts of screen
+    return (
+      <div>
+        <div classname={styles.button_row}>
+        <ButtonToolbar aria-label="Toolbar with button groups">
+          <ButtonGroup className="mr-2" aria-label="First group">
+            <Button variant="outlined">Home</Button>
+            <Button variant="outlined">Profile</Button>
+            <Button variant="outlined">Menotrs</Button>
+            <Button variant="outlined">Switch to: {this.state.interace === false ? "Mentor Interface" : "Mentee interface"}</Button>
+          </ButtonGroup>
+        </ButtonToolbar>
+        </div>
+
+        <div>
+          <HomePageBadgeGrid users={[]} />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Home;
