@@ -55,7 +55,7 @@ class Badge extends React.Component {
             .concat(" ")
             .concat(this.props.user.last_name)}
         </p>
-        <div>
+        <div className={styles.heart_icon}>
           <Button
             onClick={(e) => this.setState({ favorite: !this.state.favorite })}
           >

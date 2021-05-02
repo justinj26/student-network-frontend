@@ -85,34 +85,37 @@ class Home extends React.Component {
     // might want to use components for individual parts of screen
     return (
       <div>
-        <div classname={styles.button_row}>
-          <ButtonToolbar aria-label="Toolbar with button groups">
-            <ButtonGroup className="mr-2" aria-label="First group">
-              <Button variant="outlined" component={RouterLink} to="/home">
-                Home
-              </Button>
-              <Button variant="outlined" component={RouterLink} to="/user">
-                Profile
-              </Button>
-              <Button variant="outlined" component={RouterLink} to="">
-                Mentors
-              </Button>
-              <Button
-                variant="outlined"
-                onClick={this.toggleButton}
-                component={RouterLink}
-                to=""
-              >
-                Switch to:{" "}
-                {this.state.mentor_interface === false
-                  ? "Mentor Interface"
-                  : "Mentee interface"}
-              </Button>
-            </ButtonGroup>
-          </ButtonToolbar>
+        <div className={styles.sn_banner}>
+          <h1>The Student Network</h1>
+        </div>
+        <div className={styles.button_row}>
+          {/* <Buttonoolbar className="mr-2" aria-label="Toolbar with button groups">
+            <ButtonGroup className="mr-2" aria-label="First group"> */}
+          <Button component={RouterLink} to="/home">
+            Home
+          </Button>
+          <Button  component={RouterLink} to="/user">
+            Profile
+          </Button>
+          <Button component={RouterLink} to="">
+            Mentors
+          </Button>
+          <Button
+            variant="outlined"
+            onClick={this.toggleButton}
+            component={RouterLink}
+            to=""
+          >
+            Switch to:{" "}
+            {this.state.mentor_interface === false
+              ? "Mentor Interface"
+              : "Mentee interface"}
+          </Button>
+          {/* </ButtonGroup>
+          </ButtonToolbar> */}
         </div>
 
-        <div>
+        <div className={styles.main_grid}>
           <Switch>
             <Route path="/updateprofile"></Route>
             <Route path="/profile">
