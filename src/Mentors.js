@@ -1,5 +1,8 @@
 import Badge from "./Badge";
 import Grid from "@material-ui/core/Grid";
+import { useEffect, useState } from "react";
+
+const axios = require("axios");
 // class HomePageBadgeGrid extends React.Component {
 //   constructor() {
 //     super(props);
@@ -8,8 +11,33 @@ import Grid from "@material-ui/core/Grid";
 //   }
 // }
 
+const url = "/getallmentors"
+
 export default function Mentors(props) {
-  var badges = props.users.map((user) => 
+
+  const [users, setUsers] = useState([]);
+  
+  useEffect(() => {
+    async function fetchData() {
+
+      try {
+        const response = await axios.get(url, {
+          headers: {
+            'user_id': props.user_id,
+            'token': props.token
+          }
+        });
+        const json = await response.json();
+        setUsers(json.mentors);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchData()
+    })
+
+  var badges = users.map((user) => 
   <Grid item xs={6}>
     <Badge user={user} />
     </Grid>
@@ -30,5 +58,3 @@ export default function Mentors(props) {
     </div>
   );
 }
-
-export default Mentors;

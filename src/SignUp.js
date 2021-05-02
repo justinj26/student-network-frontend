@@ -2,7 +2,7 @@
 import { Form, Col, Row } from "react-bootstrap";
 import styles from "./SignUp.module.css";
 import Button from "@material-ui/core/Button";
-import country_names from "./countries";
+// import country_names from "./countries";
 import majors from "./majors";
 import extracurriculars from "./extracurriculars";
 
@@ -10,7 +10,7 @@ const axios = require("axios");
 const React = require("react");
 const countries_json = require("all-countries-and-cities-json");
 // thought: user likely from a different page
-const user = {};
+// const user = {};
 const basic_login_url = "/signup";
 const user_info_url = "/updateprofile"
 
@@ -125,7 +125,8 @@ class SignUp extends React.Component {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      mentor_capacity: false
     };
 
     try {

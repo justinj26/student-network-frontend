@@ -5,30 +5,33 @@ import Button from "@material-ui/core/Button";
 import styles from "./Home.module.css";
 import axios from "axios";
 import Mentors from "./Mentors";
+import Profile from "./Profile";
 // import Nav from "react-bootstrap/Nav";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 // import Form from "react-bootstrap/Form";
 // import { Row, Col } from "antd";
-import { ButtonToolbar, ButtonGroup } from "react-bootstrap"
-import { Switch, Route, Link as RouterLink } from 'react-router-dom';
+import { ButtonToolbar, ButtonGroup } from "react-bootstrap";
+import { Switch, Route, Link as RouterLink } from "react-router-dom";
 
+const user_id = localStorage.getItem("user_id");
+const token = localStorage.getItem("token");
 
 const url = "/userprofile";
 const users = [
-{
-  first_name: "Ike",
+  {
+    first_name: "Ike",
     last_name: "Boxton",
     college: "University of Michigan",
     major: "Computer Science",
     extras: ["Aerospace Engineering", "Dungeons and Dragons"]
-},
-{
-  first_name: "Mike",
+  },
+  {
+    first_name: "Mike",
     last_name: "Clarington",
     college: "University of Wisconsin",
     major: "Computer Engineering",
     extras: ["Comedy", "Programming"]
-},
+  }
 ];
 
 class Home extends React.Component {
@@ -40,6 +43,8 @@ class Home extends React.Component {
       mentor_interface: false
     };
 
+    this.toggleButton = this.toggleButton.bind(this);
+
     // this.handleInterface = this.handleInterface.bind(this);
   }
 
@@ -50,24 +55,21 @@ class Home extends React.Component {
     //   const foundUser = JSON.parse(loggedInUser);
     //   (foundUser);
 
-    const user_id = localStorage.getItem("user_id")
-    const token = localStorage.getItem("token")
-
     try {
-      const response = await axios.post(
-        url, 
-        user_id, 
-        {
+      const response = await axios.post(url, user_id, {
         headers: {
-          'Authorization': `Basic ${token}` 
-        }});
+          Authorization: `Basic ${token}`
+        }
+      });
       const json = await response.json();
       this.setState({ data: json });
     } catch (error) {
       console.log(error);
     }
+  }
 
-    
+  toggleButton() {
+    this.setState({ mentor_interface: !this.state.mentor_interface });
   }
 
   // handleInterface() {
@@ -84,30 +86,45 @@ class Home extends React.Component {
     return (
       <div>
         <div classname={styles.button_row}>
-        <ButtonToolbar aria-label="Toolbar with button groups">
-          <ButtonGroup className="mr-2" aria-label="First group">
-            <Button variant="outlined" component={RouterLink} to="/home">Home</Button>
-            <Button variant="outlined" component={RouterLink} to="/user">Profile</Button>
-            <Button variant="outlined" component={RouterLink} to="">Menotrs</Button>
-            <Button variant="outlined">Switch to: {this.state.interace === false ? "Mentor Interface" : "Mentee interface"}</Button>
-          </ButtonGroup>
-        </ButtonToolbar>
+          <ButtonToolbar aria-label="Toolbar with button groups">
+            <ButtonGroup className="mr-2" aria-label="First group">
+              <Button variant="outlined" component={RouterLink} to="/home">
+                Home
+              </Button>
+              <Button variant="outlined" component={RouterLink} to="/user">
+                Profile
+              </Button>
+              <Button variant="outlined" component={RouterLink} to="">
+                Mentors
+              </Button>
+              <Button
+                variant="outlined"
+                onClick={this.toggleButton}
+                component={RouterLink}
+                to=""
+              >
+                Switch to:{" "}
+                {this.state.mentor_interface === false
+                  ? "Mentor Interface"
+                  : "Mentee interface"}
+              </Button>
+            </ButtonGroup>
+          </ButtonToolbar>
         </div>
 
         <div>
           <Switch>
-            <Route path="/updateprofile">
-
-            </Route>
+            <Route path="/updateprofile"></Route>
             <Route path="/profile">
               <Profile />
             </Route>
             <Route path="/mentors">
-              <Mentors />
+              <Mentors user_id={user_id} token={token} />
             </Route>
             <Route></Route>
+            {/* separate out mentor and mentee interface */}
           </Switch>
-          
+
           <HomePageBadgeGrid users={users} />
         </div>
       </div>

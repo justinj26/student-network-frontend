@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "@material-ui/core/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 const axios = require("axios");
 const React = require("react");
@@ -52,12 +52,12 @@ class Login extends React.Component {
       };
 
       const response = await axios.post(url, user);
-      const json = response.json()
+      const json = response.json();
       // store the user in localStorage
       localStorage.setItem("user_id", json["user_id"]);
-      localStorage.setItem("token", json["token"])
+      localStorage.setItem("token", json["token"]);
       console.log(response.data);
-      <Redirect to="/home" />
+      // <Redirect to="/home" />
     }
   }
   // might not be a bad time for a get request /

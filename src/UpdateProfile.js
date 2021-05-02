@@ -2,7 +2,7 @@
 import { Form, Col, Row } from "react-bootstrap";
 import styles from "./SignUp.module.css";
 import Button from "@material-ui/core/Button";
-import country_names from "./countries";
+// import country_names from "./countries";
 import majors from "./majors";
 import extracurriculars from "./extracurriculars";
 
@@ -10,8 +10,8 @@ const axios = require("axios");
 const React = require("react");
 const countries_json = require("all-countries-and-cities-json");
 // thought: user likely from a different page
-const user = {};
-const post_url = "/updateprofile";
+// const user = {};
+const user_info_url = "/updateprofile";
 const get_url = "/userprofile"
 
 const student_status = ["High School", "Undergraduate", "Graduate"];
@@ -129,7 +129,7 @@ class UpdateProfile extends React.Component {
     };
 
     try {
-      axios.post(url, user);
+      axios.post(get_url, user);
     } catch (error) {
       alert(error.message);
     }
@@ -145,7 +145,16 @@ class UpdateProfile extends React.Component {
       extracurricular2: this.state.data.extracurricular2,
       extracurricular3: this.state.data.extracurricular3,
       fun_fact: this.state.data.fun_fact
-      }
+    }
+
+    
+    try {
+      axios.post(user_info_url, user_info);
+    } catch (error) {
+      alert(error.message);
+    }
+
+
     this.setState({ validated: true });
   }
 
@@ -154,7 +163,7 @@ class UpdateProfile extends React.Component {
     // get user info
   async componenetDidMount() {
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(get_url);
       const json = await response.json();
       this.setState({ data: json });
     } catch (error) {
