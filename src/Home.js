@@ -4,12 +4,13 @@ import HomePageBadgeGrid from "./HomePageBadgeGrid";
 import Button from "@material-ui/core/Button";
 import styles from "./Home.module.css";
 import axios from "axios";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Form from "react-bootstrap/Form";
-import { Row, Col } from "antd";
+import Mentors from "./Mentors";
+// import Nav from "react-bootstrap/Nav";
+// import NavDropdown from "react-bootstrap/NavDropdown";
+// import Form from "react-bootstrap/Form";
+// import { Row, Col } from "antd";
 import { ButtonToolbar, ButtonGroup } from "react-bootstrap"
-import { Link as RouterLink } from 'react-router-dom';
+import { Switch, Route, Link as RouterLink } from 'react-router-dom';
 
 
 const url = "/userprofile";
@@ -43,13 +44,30 @@ class Home extends React.Component {
   }
 
   async componenetDidMount() {
+    // not sure if required
+    // const loggedInUser = localStorage.getItem("user_i");
+    // if (loggedInUser) {
+    //   const foundUser = JSON.parse(loggedInUser);
+    //   (foundUser);
+
+    const user_id = localStorage.getItem("user_id")
+    const token = localStorage.getItem("token")
+
     try {
-      const response = await axios.get(url);
+      const response = await axios.post(
+        url, 
+        user_id, 
+        {
+        headers: {
+          'Authorization': `Basic ${token}` 
+        }});
       const json = await response.json();
       this.setState({ data: json });
     } catch (error) {
       console.log(error);
     }
+
+    
   }
 
   // handleInterface() {
@@ -77,6 +95,19 @@ class Home extends React.Component {
         </div>
 
         <div>
+          <Switch>
+            <Route path="/updateprofile">
+
+            </Route>
+            <Route path="/profile">
+              <Profile />
+            </Route>
+            <Route path="/mentors">
+              <Mentors />
+            </Route>
+            <Route></Route>
+          </Switch>
+          
           <HomePageBadgeGrid users={users} />
         </div>
       </div>

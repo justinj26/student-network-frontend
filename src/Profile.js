@@ -1,4 +1,11 @@
+import Button from "@material-ui/core/Button";
+
 const React = require("react");
+const axios = require("axios");
+
+
+const url = "/userprofile"
+
 
 class Profile extends React.Component {
   constructor(props) {
@@ -38,6 +45,7 @@ class Profile extends React.Component {
         <p>{this.state.user.}</p>
         <p>{this.state.user.}</p>
         <p>{this.state.user.}</p> */}
+        <Button>Edit Profile: </Button>
       </div>
     );
   }
