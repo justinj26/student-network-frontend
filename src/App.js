@@ -28,7 +28,7 @@ export default function App() {
   return (
     <div className="App">
       <Home />
-
+      
       <Switch>
         <Route path="/signup">
           <SignUp />
@@ -53,7 +53,7 @@ export default function App() {
         
         <Route></Route>
       </Switch>
-      <br />
+      {/* <br />
       <br />
       <br />
       <br />
@@ -66,7 +66,22 @@ export default function App() {
       <SignUp />
       <Welcome />
       <Login />
-      <Badge user={data} />
+      <Badge user={data} /> */}
     </div>
   );
 }
+
+{/* <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <SignUp />
+      <Welcome />
+      <Login />
+      <Badge user={data} /> */}

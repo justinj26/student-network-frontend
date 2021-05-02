@@ -8,16 +8,25 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import { Row, Col } from "antd";
-import { ButtonToolbar, ButtonGroup } from "react-bootstrap";
+import { ButtonToolbar, ButtonGroup } from "react-bootstrap"
+import { Link as RouterLink } from 'react-router-dom';
 
 
 const url = "/userprofile";
 const users = [
 {
-  
+  first_name: "Ike",
+    last_name: "Boxton",
+    college: "University of Michigan",
+    major: "Computer Science",
+    extras: ["Aerospace Engineering", "Dungeons and Dragons"]
 },
 {
-
+  first_name: "Mike",
+    last_name: "Clarington",
+    college: "University of Wisconsin",
+    major: "Computer Engineering",
+    extras: ["Comedy", "Programming"]
 },
 ];
 
@@ -59,16 +68,16 @@ class Home extends React.Component {
         <div classname={styles.button_row}>
         <ButtonToolbar aria-label="Toolbar with button groups">
           <ButtonGroup className="mr-2" aria-label="First group">
-            <Button variant="outlined">Home</Button>
-            <Button variant="outlined">Profile</Button>
-            <Button variant="outlined">Menotrs</Button>
+            <Button variant="outlined" component={RouterLink} to="/home">Home</Button>
+            <Button variant="outlined" component={RouterLink} to="/user">Profile</Button>
+            <Button variant="outlined" component={RouterLink} to="">Menotrs</Button>
             <Button variant="outlined">Switch to: {this.state.interace === false ? "Mentor Interface" : "Mentee interface"}</Button>
           </ButtonGroup>
         </ButtonToolbar>
         </div>
 
         <div>
-          <HomePageBadgeGrid users={[]} />
+          <HomePageBadgeGrid users={users} />
         </div>
       </div>
     );
