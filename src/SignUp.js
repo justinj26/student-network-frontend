@@ -11,7 +11,8 @@ const React = require("react");
 const countries_json = require("all-countries-and-cities-json");
 // thought: user likely from a different page
 const user = {};
-const url = "/signup";
+const basic_login_url = "/signup";
+const user_info_url = "/updateprofile"
 
 const student_status = ["High School", "Undergraduate", "Graduate"];
 const years = ["1", "2", "3", "4"];
@@ -128,7 +129,7 @@ class SignUp extends React.Component {
     };
 
     try {
-      axios.post(url, user);
+      axios.post(basic_login_url, user);
     } catch (error) {
       alert(error.message);
     }
@@ -145,6 +146,13 @@ class SignUp extends React.Component {
       extracurricular3: this.state.data.extracurricular3,
       fun_fact: this.state.data.fun_fact
     }
+
+    try {
+      axios.post(user_info_url, user_info);
+    } catch (error) {
+      alert(error.message);
+    }
+
     this.setState({ validated: true });
   }
 

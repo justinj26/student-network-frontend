@@ -28,7 +28,7 @@ export default function App() {
   return (
     <div className="App">
       <Home />
-      
+
       <Switch>
         <Route path="/signup">
           <SignUp />
@@ -47,10 +47,10 @@ export default function App() {
           <Profile />
         </Route>
 
+        <Route>{/* <HomePageBadgeGrid users={mentors} /> */}</Route>
+
         <Route></Route>
-        
-        <Route></Route>
-        
+
         <Route></Route>
       </Switch>
       {/* <br />
@@ -71,7 +71,8 @@ export default function App() {
   );
 }
 
-{/* <br />
+{
+  /* <br />
       <br />
       <br />
       <br />
@@ -84,4 +85,5 @@ export default function App() {
       <SignUp />
       <Welcome />
       <Login />
-      <Badge user={data} /> */}
+      <Badge user={data} /> */
+}
