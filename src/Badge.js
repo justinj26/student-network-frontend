@@ -10,7 +10,10 @@ import FavoriteTwoToneIcon from "@material-ui/icons/FavoriteTwoTone";
 import FavoriteBorderTwoToneIcon from "@material-ui/icons/FavoriteBorderTwoTone";
 import Button from "@material-ui/core/Button";
 // import Avatar from "./Avatar";
+const axios = require("axios")
 const React = require("react");
+
+const request_mentor_url = "/requestmentor"
 
 // const data = {
 //   college: "University of Michigan",
@@ -50,7 +53,7 @@ class Badge extends React.Component {
     // note: user id and token will likely need to be 
     // toted around with user
 
-    requestObj = 
+    const requestObj = 
       {"user_id": "user_id", "token": "authentication token", "add_connection":
       {"user_id": "Connection User id"}, "connection_type": "mentor type id"} 
     

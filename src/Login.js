@@ -1,6 +1,6 @@
 // Login page
 import styles from "./Login.module.css";
-import { Form } from "react-bootstrap/Form";
+import Form from "react-bootstrap/Form";
 import Button from "@material-ui/core/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";

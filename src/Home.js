@@ -104,8 +104,17 @@ class Home extends React.Component {
           <Button component={RouterLink} to="/user">
             Profile
           </Button>
-          <Button component={RouterLink} to="">
+          {/* <Button component={RouterLink} to="">
             Mentors
+          </Button> */}
+          <Button component={RouterLink} to="">
+            <b>Inbox</b>
+          </Button>
+          <Button component={RouterLink} to="">
+            Calendar
+          </Button>
+          <Button component={RouterLink} to="">
+            Search
           </Button>
           {/* <Button
             variant="outlined"
