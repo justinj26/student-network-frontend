@@ -31,6 +31,13 @@ const users = [
     college: "University of Wisconsin",
     major: "Computer Engineering",
     extras: ["Comedy", "Programming"]
+  },
+  {
+    first_name: "Amene",
+    last_name: "Rhodes",
+    college: "Georgetown",
+    major: "Computer Science",
+    extras: ["Screenwriting", "Programming"]
   }
 ];
 
@@ -94,13 +101,13 @@ class Home extends React.Component {
           <Button component={RouterLink} to="/home">
             Home
           </Button>
-          <Button  component={RouterLink} to="/user">
+          <Button component={RouterLink} to="/user">
             Profile
           </Button>
           <Button component={RouterLink} to="">
             Mentors
           </Button>
-          <Button
+          {/* <Button
             variant="outlined"
             onClick={this.toggleButton}
             component={RouterLink}
@@ -110,7 +117,7 @@ class Home extends React.Component {
             {this.state.mentor_interface === false
               ? "Mentor Interface"
               : "Mentee interface"}
-          </Button>
+          </Button> */}
           {/* </ButtonGroup>
           </ButtonToolbar> */}
         </div>

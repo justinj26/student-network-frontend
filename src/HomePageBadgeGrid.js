@@ -17,7 +17,7 @@ export default function HomePageBadgeGrid(props) {
 
   return (
     <div>
-      <Grid container justify="space-evenly" alignItems="center">
+      <Grid container justify="space-evenly" alignItems="flex-start">
         {badges}
       </Grid>
     </div>

@@ -29,6 +29,8 @@ class Badge extends React.Component {
       data: [],
       favorite: false
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   async componentDidMount() {
@@ -38,6 +40,25 @@ class Badge extends React.Component {
       this.setState({ data: json });
     } catch (error) {
       console.log(error);
+    }
+  }
+
+
+
+  async handleClick() {
+
+    // note: user id and token will likely need to be 
+    // toted around with user
+
+    requestObj = 
+      {"user_id": "user_id", "token": "authentication token", "add_connection":
+      {"user_id": "Connection User id"}, "connection_type": "mentor type id"} 
+    
+
+    try {
+      const reponse = await axios.post(request_mentor_url, requestObj)
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -77,6 +98,9 @@ class Badge extends React.Component {
             <p>{extra}</p>
           ))}
         </div>
+        <Button variant="contained" onClick={this.handleClick}>
+            Request Mentor
+        </Button>
       </div>
     );
   }
