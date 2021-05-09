@@ -6,6 +6,7 @@ import styles from "./Home.module.css";
 import axios from "axios";
 import Mentors from "./Mentors";
 import Profile from "./Profile";
+import Filter from "./Filter";
 // import Nav from "react-bootstrap/Nav";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 // import Form from "react-bootstrap/Form";

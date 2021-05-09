@@ -6,6 +6,7 @@ import Profile from "./Profile";
 import SignUp from "./SignUp";
 import Home from "./Home";
 import { Switch, Route } from "react-router-dom";
+import Filter from "./Filter";
 
 const data = {
   college: "University of Michigan",
@@ -28,7 +29,7 @@ export default function App() {
   return (
     <div className="App">
       <Home />
-
+      <Filter />
       <Switch>
         <Route path="/signup">
           <SignUp />

@@ -9,6 +9,8 @@ import styles from "./Badge.module.css";
 import FavoriteTwoToneIcon from "@material-ui/icons/FavoriteTwoTone";
 import FavoriteBorderTwoToneIcon from "@material-ui/icons/FavoriteBorderTwoTone";
 import Button from "@material-ui/core/Button";
+import BookmarkTwoToneIcon from '@material-ui/icons/BookmarkTwoTone';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 // import Avatar from "./Avatar";
 const axios = require("axios")
 const React = require("react");
@@ -30,7 +32,8 @@ class Badge extends React.Component {
       // data to be json, appending the json
       // and flattening the array(s?)
       data: [],
-      favorite: false
+      favorite: false,
+      saved: false
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -104,6 +107,16 @@ class Badge extends React.Component {
         <Button variant="contained" onClick={this.handleClick}>
             Request Mentor
         </Button>
+<div className={styles.saved_icon} >
+<Button onClick={(e) => this.setState({ saved: !this.state.saved })}
+          >
+            {this.state.saved ? (
+              <BookmarkTwoToneIcon style={{ color: "blue" }} />
+            ) : (
+              <BookmarkBorderIcon style={{ color: "blue" }} />
+            )}
+          </Button>
+</div>
       </div>
     );
   }
