@@ -93,7 +93,7 @@ class Home extends React.Component {
     return (
       <div>
         <div className={styles.sn_banner}>
-          <h1>The Student Network</h1>
+          <h1 className={styles.sn_banner_text}>The Student Network</h1>
         </div>
         <div className={styles.button_row}>
           {/* <Buttonoolbar className="mr-2" aria-label="Toolbar with button groups">
