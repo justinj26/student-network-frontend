@@ -1,16 +1,25 @@
 import Button from "@material-ui/core/Button";
 import extracurriculars from "./extracurriculars";
 import majors from "./majors";
+
+// styling
 import styles from "./Filter.module.css";
 
 const countries_json = require("all-countries-and-cities-json");
 const student_status = ["High School", "Undergraduate", "Graduate"];
 const years = ["1", "2", "3", "4"];
+
+// data formatting
 const countries = Object.keys(countries_json);
 
+
+// be able to use react
 const React = require("react");
+
+// package for REST operations
 const axios = require("axios");
 
+// url to get all users
 const url = "/users";
 
 class Filter extends React.Component {

@@ -48,6 +48,11 @@ class Home extends React.Component {
 
     this.state = {
       data: {},
+      all_matches: [],
+      incoming_match_requests: [],
+      favorite_matches: [],
+      outgoing_match_requests: [],
+      saved_profiles: [],
       mentor_interface: false
     };
 
@@ -62,6 +67,46 @@ class Home extends React.Component {
     // if (loggedInUser) {
     //   const foundUser = JSON.parse(loggedInUser);
     //   (foundUser);
+
+    try {
+      const response_1 = await axios.get(url_all);
+      const json_1 = response_1.json();
+      this.setState({ all_matches: json_1 })
+    } catch(error) {
+      console.log(error)
+    }
+
+    try {
+      const response_2 = await axios.get(url_incoming);
+      const json_2 = response_2.json();
+      this.setState({ incoming_match_requests: json_2 })
+    } catch(error) {
+      console.log(error)
+    }
+
+    try {
+      const response_3 = await axios.get(url_favorite);
+      const json_3 = response_3.json();
+      this.setState({ favorite_matches: json_3 })
+    } catch(error) {
+      console.log(error)
+    }
+
+    try {
+      const response_4 = await axios.get(url_outgoing);
+      const json_4 = response_4.json();
+      this.setState({ outgoing_match_requests: json_4 })
+    } catch(error) {
+      console.log(error)
+    }
+
+    try {
+      const response_5 = await axios.get(url_saved);
+      const json_5 = response_5.json();
+      this.setState({ saved_matches: json_5 })
+    } catch(error) {
+      console.log(error)
+    }
 
     try {
       const response = await axios.post(url, user_id, {
@@ -102,19 +147,19 @@ class Home extends React.Component {
           <Button component={RouterLink} to="/home">
             Home
           </Button>
-          <Button component={RouterLink} to="/user">
+          <Button component={RouterLink} to="home/user">
             Profile
           </Button>
           {/* <Button component={RouterLink} to="">
             Mentors
           </Button> */}
-          <Button component={RouterLink} to="">
+          <Button component={RouterLink} to="/home/inbox">
             <b>Inbox</b>
           </Button>
-          <Button component={RouterLink} to="">
+          <Button component={RouterLink} to="/home/Calendar">
             Calendar
           </Button>
-          <Button component={RouterLink} to="">
+          <Button component={RouterLink} to="home/search">
             Search
           </Button>
           {/* <Button
@@ -141,8 +186,33 @@ class Home extends React.Component {
             <Route path="/mentors">
               <Mentors user_id={user_id} token={token} />
             </Route>
-            <Route></Route>
-            {/* separate out mentor and mentee interface */}
+            <Route path="/all_matches">
+
+            </Route>
+            <Route path="/incoming_match_requests">
+
+            </Route>
+            <Route path="/favorite_matches">
+
+            </Route>
+            <Route path="/outgoing_match_requests">
+
+            </Route>
+            <Route path="/saved_profiles">
+
+            </Route>
+            <Route>
+
+            </Route>
+            <Route>
+
+            </Route>
+            <Route>
+
+            </Route>
+
+
+            
           </Switch>
 
           <HomePageBadgeGrid users={users} />

@@ -5,8 +5,11 @@ import Welcome from "./Welcome";
 import Profile from "./Profile";
 import SignUp from "./SignUp";
 import Home from "./Home";
+import MatchesAndRequests from "./MatchesAndRequests";
 import { Switch, Route } from "react-router-dom";
 import Filter from "./Filter";
+
+const user = localStorage.getItem("user_id");
 
 const data = {
   college: "University of Michigan",
@@ -26,10 +29,17 @@ export default function App() {
   // some setup, to where if a user is present, go to home page
   // if not, go to Welcome page
 
+
+  // const display = (user) ? <Home user={user} > : <Login>
+
+  
   return (
     <div className="App">
       <Home />
       <Filter />
+      <MatchesAndRequests />
+      {/* {display} */}
+      {/* if (localStorage.getItem("user_id")) */}
       <Switch>
         <Route path="/signup">
           <SignUp />
