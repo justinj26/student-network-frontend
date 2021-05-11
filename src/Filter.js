@@ -94,50 +94,29 @@ class Filter extends React.Component {
     // }
 
     return (
-      <div className={styles.filter_box}>
-        <form>
-          <label>
-            Nationality:
-            <select
-              value={this.state.filter_nationality}
-              onChange={this.handleNationality}
-            >
-              {countries.map((country) => (
-                <option>{country}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            School Name:
-            <input type="text" value={this.state.filter_school} />
-          </label>
-          <label>
-            Major:
-            <select
-              value={this.state.filter_major1}
-              onChange={this.handleNationality}
-            >
-              {majors.map((major) => (
-                <option>{major}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            <label>
-              Major:
+      <div>
+        <div className={styles.filter_box}>
+          <form>
+            <label><input type="checkbox" value="nationality" />
+              Nationality:
+              
               <select
-                value={this.state.filter_major2}
+                value={this.state.filter_nationality}
                 onChange={this.handleNationality}
               >
-                {majors.map((major) => (
-                  <option>{major}</option>
+                {countries.map((country) => (
+                  <option>{country}</option>
                 ))}
               </select>
-            </label>{" "}
+            </label>
+            <label><input type="checkbox" value="school_name" />
+              School Name:
+              <input type="text" value={this.state.filter_school} />
+            </label>
             <label>
               Major:
               <select
-                value={this.state.filter_major3}
+                value={this.state.filter_major1}
                 onChange={this.handleNationality}
               >
                 {majors.map((major) => (
@@ -145,41 +124,65 @@ class Filter extends React.Component {
                 ))}
               </select>
             </label>
-            Extracurricular:
-            <select
-              value={this.state.filter_extracurricular1}
-              onChange={this.handleNationality}
-            >
-              {extracurriculars.map((extra) => (
-                <option>{extra}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Extracurricular:
-            <select
-              value={this.state.filter_extracurricular2}
-              onChange={this.handleNationality}
-            >
-              {extracurriculars.map((extra) => (
-                <option>{extra}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Extracurricular:
-            <select
-              value={this.state.filter_extracurricular3}
-              onChange={this.handleNationality}
-            >
-              {extracurriculars.map((extra) => (
-                <option>{extra}</option>
-              ))}
-            </select>
-          </label>
+            <label>
+              <label>
+                Major:
+                <select
+                  value={this.state.filter_major2}
+                  onChange={this.handleNationality}
+                >
+                  {majors.map((major) => (
+                    <option>{major}</option>
+                  ))}
+                </select>
+              </label>{" "}
+              <label>
+                Major:
+                <select
+                  value={this.state.filter_major3}
+                  onChange={this.handleNationality}
+                >
+                  {majors.map((major) => (
+                    <option>{major}</option>
+                  ))}
+                </select>
+              </label>
+              Extracurricular:
+              <select
+                value={this.state.filter_extracurricular1}
+                onChange={this.handleNationality}
+              >
+                {extracurriculars.map((extra) => (
+                  <option>{extra}</option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Extracurricular:
+              <select
+                value={this.state.filter_extracurricular2}
+                onChange={this.handleNationality}
+              >
+                {extracurriculars.map((extra) => (
+                  <option>{extra}</option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Extracurricular:
+              <select
+                value={this.state.filter_extracurricular3}
+                onChange={this.handleNationality}
+              >
+                {extracurriculars.map((extra) => (
+                  <option>{extra}</option>
+                ))}
+              </select>
+            </label>
 
-          <Button>Search using filter</Button>
-        </form>
+            <Button>Search using filter</Button>
+          </form>
+        </div>
       </div>
     );
   }

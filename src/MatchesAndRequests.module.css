@@ -1,8 +1,8 @@
-.filter_box {
+.matches_and_requests_box {
   position: absolute;
   width: 250px;
   height: 627px;
-  left: 50px;
+  right: 0px;
   top: 305px;
   overflow: hidden;
 
@@ -10,15 +10,7 @@
   box-sizing: border-box;
   border-radius: 0px;
   display: inline-block;
-  padding: 35px;
+  /* padding: 35px; */
 
   background: #f9b916;
-}
-
-select[option].filter_box {
-  overflow: hidden;
-}
-
-select.filter_box {
-  display: inline;
 }

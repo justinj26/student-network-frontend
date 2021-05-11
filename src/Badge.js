@@ -94,15 +94,16 @@ class Badge extends React.Component {
           </Button>
         </div>
         {/* <Avatar /> */}
-
-        <p>College: {this.props.user.college}</p>
-        <p>Major: {this.props.user.major}</p>
-
         <div>
-          Extracurriculars:{" "}
-          {this.props.user.extras.map((extra) => (
-            <p>{extra}</p>
-          ))}
+          <p>College: {this.props.user.college}</p>
+          <p>Major: {this.props.user.major}</p>
+
+          <div>
+            Extracurriculars:{" "}
+            {this.props.user.extras.map((extra) => (
+              <p>{extra}</p>
+            ))}
+          </div>
         </div>
         <Button variant="contained" onClick={this.handleClick}>
             Request Mentor

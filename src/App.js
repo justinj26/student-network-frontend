@@ -56,7 +56,7 @@ export default function App() {
 
         <Route></Route>
       </Switch>
-      <br />
+      {/* <br />
       <br />
       <br />
       <br />
@@ -116,12 +116,12 @@ export default function App() {
       <br />
       <br />
       <br />
-      <br />
-      <SignUp />
-   
+      <br /> */}
+      {/* <SignUp />
+
       <Welcome />
       <Login />
-      <Badge user={data} />
+      <Badge user={data} /> */}
     </div>
   );
 }

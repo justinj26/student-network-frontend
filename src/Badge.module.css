@@ -5,6 +5,10 @@
   border-radius: 0px;
   display: inline-block;
   padding: 35px;
+
+  font-family: Roboto;
+  background: #FC871B;
+  line-height: 10px;
 }
 
 .heart_icon {
