@@ -18,6 +18,14 @@ const user_id = localStorage.getItem("user_id");
 const token = localStorage.getItem("token");
 
 const url = "/userprofile";
+
+const url_all = "/getallmatches";
+const url_incoming = "/getincomingrequests";
+const url_favorite = "/getfavoritematches";
+const url_outgoing = "/getoutgoingrequests";
+const url_saved = "/getsavedprofiles";
+
+
 const users = [
   {
     first_name: "Ike",
@@ -103,7 +111,7 @@ class Home extends React.Component {
     try {
       const response_5 = await axios.get(url_saved);
       const json_5 = response_5.json();
-      this.setState({ saved_matches: json_5 })
+      this.setState({ saved_profiles: json_5 })
     } catch(error) {
       console.log(error)
     }

@@ -7,7 +7,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 const React = require("react");
 
-class MatchesAndRequests extends React.component {
+class MatchesAndRequests extends React.Component {
   constructor(props) {
     super(props);
 
@@ -53,9 +53,8 @@ class MatchesAndRequests extends React.component {
 
         </div>
       </div>
-    )
+    );
   }
-
 }
 
 export default MatchesAndRequests;

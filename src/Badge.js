@@ -12,7 +12,7 @@ import Button from "@material-ui/core/Button";
 import BookmarkTwoToneIcon from '@material-ui/icons/BookmarkTwoTone';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 // import Avatar from "./Avatar";
-const axios = require("axios")
+const axios = require("axios");
 const React = require("react");
 
 const request_mentor_url = "/requestmentor"
@@ -41,7 +41,7 @@ class Badge extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch(``);
+      const response = await axios.get(``);
       const json = await response.json();
       this.setState({ data: json });
     } catch (error) {
@@ -62,7 +62,7 @@ class Badge extends React.Component {
     
 
     try {
-      const reponse = await axios.post(request_mentor_url, requestObj)
+      await axios.post(request_mentor_url, requestObj)
     } catch (error) {
       console.log(error)
     }

@@ -7,7 +7,7 @@ import styles from "./Filter.module.css";
 
 const countries_json = require("all-countries-and-cities-json");
 const student_status = ["High School", "Undergraduate", "Graduate"];
-const years = ["1", "2", "3", "4"];
+// const years = ["1", "2", "3", "4"];
 
 // data formatting
 const countries = Object.keys(countries_json);
@@ -35,7 +35,10 @@ class Filter extends React.Component {
       filter_nationality: "",
       filter_extracurricular1: "",
       filter_extracurricular2: "",
-      filter_extracurricular3: ""
+      filter_extracurricular3: "",
+      filter_education: "",
+      users_to_display: []
+
     };
 
     this.handleMajor1 = this.handleMajor1.bind(this);
@@ -46,6 +49,7 @@ class Filter extends React.Component {
     this.handleExtracurricular3 = this.handleExtracurricular3.bind(this);
     this.handleSchool = this.handleSchool.bind(this);
     this.handleNationality = this.handleNationality.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async componenetDidMount() {
@@ -84,7 +88,8 @@ class Filter extends React.Component {
     this.setState({ filter_major1: event.target.value });
   }
 
-  render() {
+  handleSubmit(event) {
+    event.preventDefault()
     let users_to_display = this.state.users;
     if (this.state.filter_major1 !== "") {
       users_to_display = users_to_display.filter((user) => user.major);
@@ -95,9 +100,38 @@ class Filter extends React.Component {
     if (this.state.filter_nationality !== "") {
       users_to_display = users_to_display.filter((user) => user.major);
     }
-    // if (filter_major != "") {
-    //   users_to_display = users_to_display.filter(user => user.major)
-    // }
+    if (this.state.filter_major2 !== "") {
+      users_to_display = users_to_display.filter((user) => user.major);
+    }
+  }
+
+  render() {
+    let users_to_display = this.state.users;
+    if (this.state.filter_major1 !== "") {
+      users_to_display = users_to_display.filter((user) => user.major === this.state.filter_major1);
+    }
+    if (this.state.filter_major2 !== "") {
+      users_to_display = users_to_display.filter(user => user.major === this.state.filter_major2)
+    }
+    if (this.state.filter_major3 !== "") {
+      users_to_display = users_to_display.filter(user => user.major === this.state.filter_major2)
+    }
+    if (this.state.filter_extracurricular1 !== "") {
+      users_to_display = users_to_display.filter(user => user.extracurricular1 === this.state.filter_extracurricular1)
+    }
+    if (this.state.filter_extracurricular2 !== "") {
+      users_to_display = users_to_display.filter(user => user.extracurricular2 === this.state.filter_extracurricular2)
+    }
+    if (this.state.filter_extracurricular3 !== "") {
+      users_to_display = users_to_display.filter(user => user.extracurricular3 === this.state.filter_extracurricular3)
+    }
+    if (this.state.filter_school !== "") {
+      users_to_display = users_to_display.filter((user) => user.school_name === this.state.filter_school);
+    }
+    if (this.state.filter_nationality !== "") {
+      users_to_display = users_to_display.filter((user) => user.nationality === this.state.filter_nationality );
+    }
+    
     // if (filter_major != "") {
     //   users_to_display = users_to_display.filter(user => user.major)
     // }
@@ -112,7 +146,7 @@ class Filter extends React.Component {
               <select
                 value={this.state.filter_nationality}
                 onChange={this.handleNationality}
-              >
+              ><option>{""}</option>
                 {countries.map((country) => (
                   <option>{country}</option>
                 ))}
@@ -127,7 +161,7 @@ class Filter extends React.Component {
               <select
                 value={this.state.filter_major1}
                 onChange={this.handleNationality}
-              >
+              ><option>{""}</option>
                 {majors.map((major) => (
                   <option>{major}</option>
                 ))}
@@ -139,7 +173,7 @@ class Filter extends React.Component {
                 <select
                   value={this.state.filter_major2}
                   onChange={this.handleNationality}
-                >
+                ><option>{""}</option>
                   {majors.map((major) => (
                     <option>{major}</option>
                   ))}
@@ -150,7 +184,7 @@ class Filter extends React.Component {
                 <select
                   value={this.state.filter_major3}
                   onChange={this.handleNationality}
-                >
+                ><option>{""}</option>
                   {majors.map((major) => (
                     <option>{major}</option>
                   ))}
@@ -171,7 +205,7 @@ class Filter extends React.Component {
               <select
                 value={this.state.filter_extracurricular2}
                 onChange={this.handleNationality}
-              >
+              ><option>{""}</option>
                 {extracurriculars.map((extra) => (
                   <option>{extra}</option>
                 ))}
@@ -182,14 +216,25 @@ class Filter extends React.Component {
               <select
                 value={this.state.filter_extracurricular3}
                 onChange={this.handleNationality}
-              >
+              ><option>{""}</option>
                 {extracurriculars.map((extra) => (
                   <option>{extra}</option>
                 ))}
               </select>
             </label>
+            <label>
+              Education Level:
+              <select
+                value={this.state.filter_education}
+                onChange={this.handleNationality}
+              ><option>{""}</option>
+                {student_status.map((level) => (
+                  <option>{level}</option>
+                ))}
+              </select>
+            </label>
 
-            <Button>Search using filter</Button>
+            <Button type="submit">Search using filter</Button>
           </form>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import "./styles.css";
 import Login from "./Login";
-import Badge from "./Badge";
+// import Badge from "./Badge";
 import Welcome from "./Welcome";
 import Profile from "./Profile";
 import SignUp from "./SignUp";
@@ -9,22 +9,22 @@ import MatchesAndRequests from "./MatchesAndRequests";
 import { Switch, Route } from "react-router-dom";
 import Filter from "./Filter";
 
-const user = localStorage.getItem("user_id");
+// const user = localStorage.getItem("user_id");
 
-const data = {
-  college: "University of Michigan",
-  major: "Computer Science",
-  extracuriculars: ["Aerospace Engineering", "Dungeons and Dragons"]
-};
+// const data = {
+//   college: "University of Michigan",
+//   major: "Computer Science",
+//   extracuriculars: ["Aerospace Engineering", "Dungeons and Dragons"]
+// };
 
 export default function App() {
-  const data = {
-    first_name: "Ike",
-    last_name: "Boxton",
-    college: "University of Michigan",
-    major: "Computer Science",
-    extras: ["Aerospace Engineering", "Dungeons and Dragons"]
-  };
+  // const data = {
+  //   first_name: "Ike",
+  //   last_name: "Boxton",
+  //   college: "University of Michigan",
+  //   major: "Computer Science",
+  //   extras: ["Aerospace Engineering", "Dungeons and Dragons"]
+  // };
 
   // some setup, to where if a user is present, go to home page
   // if not, go to Welcome page

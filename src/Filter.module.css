@@ -12,6 +12,8 @@
   display: inline-block;
   padding: 35px;
 
+  text-align: left;
+
   background: #f9b916;
 }
 
@@ -22,3 +24,5 @@ select[option].filter_box {
 select.filter_box {
   display: inline;
 }
+
+/* thought, a label is probably a block */
