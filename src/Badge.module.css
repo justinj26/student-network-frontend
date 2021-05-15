@@ -1,7 +1,24 @@
 .badge_box {
+  position: relative;
   border: 1px solid #000000;
   box-sizing: border-box;
-  border-radius: 20px;
+  border-radius: 0px;
   display: inline-block;
-  padding: 20px;
+  padding: 35px;
+
+  font-family: Roboto;
+  background: #FC871B;
+  line-height: 10px;
+}
+
+.heart_icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.saved_icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }

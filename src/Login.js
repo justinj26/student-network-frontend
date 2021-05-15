@@ -4,8 +4,12 @@ import Form from "react-bootstrap/Form";
 import Button from "@material-ui/core/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+// import { Redirect } from "react-router-dom";
 
+const axios = require("axios");
 const React = require("react");
+
+const url = "/login";
 
 class Login extends React.Component {
   constructor(props) {
@@ -30,7 +34,7 @@ class Login extends React.Component {
     this.setState({ password: event.target.value });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     alert("submitted");
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -40,14 +44,28 @@ class Login extends React.Component {
 
     event.preventDefault();
     this.setState({ validated: true });
+
+    if (this.state.validated) {
+      const user = {
+        email: this.state.email,
+        password: this.state.password
+      };
+
+      const response = await axios.post(url, user);
+      const json = response.json();
+      // store the user in localStorage
+      localStorage.setItem("user_id", json["user_id"]);
+      localStorage.setItem("token", json["token"]);
+      console.log(response.data);
+      // <Redirect to="/home" />
+    }
   }
-    // might not be a bad time for a get request /
-    // this login information might be passed to the
-    // the rest of the app
-    // post request
-    // thought: will need to be able to take errors from backend
-    // and then display those errors.
-  
+  // might not be a bad time for a get request /
+  // this login information might be passed to the
+  // the rest of the app
+  // post request
+  // thought: will need to be able to take errors from backend
+  // and then display those errors.
 
   render() {
     return (

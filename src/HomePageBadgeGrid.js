@@ -4,28 +4,21 @@ import Grid from "@material-ui/core/Grid";
 //   constructor() {
 //     super(props);
 
-//     this.state = 
+//     this.state =
 //   }
 // }
 
 export default function HomePageBadgeGrid(props) {
-  var badges = props.users.map((user) => 
-  <Grid item xs={6}>
-    <Badge user={user} />
+  var badges = props.users.map((user) => (
+    <Grid item xs={6}>
+      <Badge user={user} />
     </Grid>
-  );
-
-
+  ));
 
   return (
-
-
     <div>
-      <Grid 
-        container 
-        justify="space-evenly"
-        alignItems="center">
-          {badges}
+      <Grid container justify="space-evenly" alignItems="flex-start">
+        {badges}
       </Grid>
     </div>
   );

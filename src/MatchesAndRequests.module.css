@@ -1,0 +1,17 @@
+.matches_and_requests_box {
+  position: absolute;
+
+  text-align: left;
+  
+  right: 50px;
+  top: 305px;
+  overflow: hidden;
+
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 0px;
+  display: inline-block;
+  padding: 35px;
+
+  background: #f9b916;
+}
