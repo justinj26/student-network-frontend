@@ -18,9 +18,9 @@
   align-items: center;
 
   position: absolute;
-  width: 240px;
+  width: 15%;
   height: 125px;
-  left: 10%;
+  left: 5%;
   top: 32px;
   padding: 0px;
   margin: 0px;
@@ -32,7 +32,7 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.25em;
   line-height: 30px;
   /* or 111% */
 
@@ -43,9 +43,9 @@
 
 .main_grid {
   position: absolute;
-  width: 813px;
+  width: 800px;
   height: 622px;
-  left: 312px;
+  left: 25%;
   top: 254px;
 }
 
@@ -54,9 +54,9 @@
   justify-content: space-around;
 
   position: absolute;
-  width: 1113px;
+  width: 50%;
   height: 85px;
-  left: 274px;
+  left: 40%;
   top: 32px;
   font-weight: bold;
 
