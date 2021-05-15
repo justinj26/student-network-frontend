@@ -36,7 +36,7 @@ export default function App() {
   return (
     <div className="App">
       <Home />
-      <Filter />
+      {/* <Filter /> */}
       <MatchesAndRequests />
       {/* {display} */}
       {/* if (localStorage.getItem("user_id")) */}

@@ -184,7 +184,7 @@ class Home extends React.Component {
           {/* </ButtonGroup>
           </ButtonToolbar> */}
         </div>
-
+        <Filter />
         <div className={styles.main_grid}>
           <Switch>
             <Route path="/updateprofile"></Route>
@@ -209,7 +209,7 @@ class Home extends React.Component {
             <Route path="/saved_profiles">
 
             </Route>
-            <Route>
+            <Route path="/filter">
 
             </Route>
             <Route>

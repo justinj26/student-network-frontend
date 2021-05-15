@@ -20,7 +20,7 @@
   position: absolute;
   width: 240px;
   height: 125px;
-  left: 15px;
+  left: 10%;
   top: 32px;
   padding: 0px;
   margin: 0px;
@@ -58,6 +58,7 @@
   height: 85px;
   left: 274px;
   top: 32px;
+  font-weight: bold;
 
   background: #f9b916;
 }

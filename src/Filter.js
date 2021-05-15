@@ -4,6 +4,7 @@ import majors from "./majors";
 
 // styling
 import styles from "./Filter.module.css";
+import { LInk as RouterLink } from "react-router-dom";
 
 const countries_json = require("all-countries-and-cities-json");
 const student_status = ["High School", "Undergraduate", "Graduate"];
@@ -90,22 +91,20 @@ class Filter extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    let users_to_display = this.state.users;
-    if (this.state.filter_major1 !== "") {
-      users_to_display = users_to_display.filter((user) => user.major);
-    }
-    if (this.state.filter_school !== "") {
-      users_to_display = users_to_display.filter((user) => user.major);
-    }
-    if (this.state.filter_nationality !== "") {
-      users_to_display = users_to_display.filter((user) => user.major);
-    }
-    if (this.state.filter_major2 !== "") {
-      users_to_display = users_to_display.filter((user) => user.major);
-    }
-  }
 
-  render() {
+    // let users_to_display = this.state.users;
+    // if (this.state.filter_major1 !== "") {
+    //   users_to_display = users_to_display.filter((user) => user.major);
+    // }
+    // if (this.state.filter_school !== "") {
+    //   users_to_display = users_to_display.filter((user) => user.major);
+    // }
+    // if (this.state.filter_nationality !== "") {
+    //   users_to_display = users_to_display.filter((user) => user.major);
+    // }
+    // if (this.state.filter_major2 !== "") {
+    //   users_to_display = users_to_display.filter((user) => user.major);
+    // }
     let users_to_display = this.state.users;
     if (this.state.filter_major1 !== "") {
       users_to_display = users_to_display.filter((user) => user.major === this.state.filter_major1);
@@ -131,6 +130,36 @@ class Filter extends React.Component {
     if (this.state.filter_nationality !== "") {
       users_to_display = users_to_display.filter((user) => user.nationality === this.state.filter_nationality );
     }
+
+
+  }
+
+  render() {
+    // let users_to_display = this.state.users;
+    // if (this.state.filter_major1 !== "") {
+    //   users_to_display = users_to_display.filter((user) => user.major === this.state.filter_major1);
+    // }
+    // if (this.state.filter_major2 !== "") {
+    //   users_to_display = users_to_display.filter(user => user.major === this.state.filter_major2)
+    // }
+    // if (this.state.filter_major3 !== "") {
+    //   users_to_display = users_to_display.filter(user => user.major === this.state.filter_major2)
+    // }
+    // if (this.state.filter_extracurricular1 !== "") {
+    //   users_to_display = users_to_display.filter(user => user.extracurricular1 === this.state.filter_extracurricular1)
+    // }
+    // if (this.state.filter_extracurricular2 !== "") {
+    //   users_to_display = users_to_display.filter(user => user.extracurricular2 === this.state.filter_extracurricular2)
+    // }
+    // if (this.state.filter_extracurricular3 !== "") {
+    //   users_to_display = users_to_display.filter(user => user.extracurricular3 === this.state.filter_extracurricular3)
+    // }
+    // if (this.state.filter_school !== "") {
+    //   users_to_display = users_to_display.filter((user) => user.school_name === this.state.filter_school);
+    // }
+    // if (this.state.filter_nationality !== "") {
+    //   users_to_display = users_to_display.filter((user) => user.nationality === this.state.filter_nationality );
+    // }
     
     // if (filter_major != "") {
     //   users_to_display = users_to_display.filter(user => user.major)
@@ -139,6 +168,7 @@ class Filter extends React.Component {
     return (
       <div>
         <div className={styles.filter_box}>
+          Filter: 
           <form>
             <label><input type="checkbox" value="nationality" />
               Nationality:
@@ -234,7 +264,7 @@ class Filter extends React.Component {
               </select>
             </label>
 
-            <Button type="submit">Search using filter</Button>
+            {/* <Button type="submit" onClick={this.handleSubmit} component={RouterLink} to="/home/filter">Search using filter</Button> */}
           </form>
         </div>
       </div>
