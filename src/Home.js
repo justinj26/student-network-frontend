@@ -25,7 +25,6 @@ const url_favorite = "/getfavoritematches";
 const url_outgoing = "/getoutgoingrequests";
 const url_saved = "/getsavedprofiles";
 
-
 const users = [
   {
     first_name: "Ike",
@@ -79,41 +78,41 @@ class Home extends React.Component {
     try {
       const response_1 = await axios.get(url_all);
       const json_1 = response_1.json();
-      this.setState({ all_matches: json_1 })
-    } catch(error) {
-      console.log(error)
+      this.setState({ all_matches: json_1 });
+    } catch (error) {
+      console.log(error);
     }
 
     try {
       const response_2 = await axios.get(url_incoming);
       const json_2 = response_2.json();
-      this.setState({ incoming_match_requests: json_2 })
-    } catch(error) {
-      console.log(error)
+      this.setState({ incoming_match_requests: json_2 });
+    } catch (error) {
+      console.log(error);
     }
 
     try {
       const response_3 = await axios.get(url_favorite);
       const json_3 = response_3.json();
-      this.setState({ favorite_matches: json_3 })
-    } catch(error) {
-      console.log(error)
+      this.setState({ favorite_matches: json_3 });
+    } catch (error) {
+      console.log(error);
     }
 
     try {
       const response_4 = await axios.get(url_outgoing);
       const json_4 = response_4.json();
-      this.setState({ outgoing_match_requests: json_4 })
-    } catch(error) {
-      console.log(error)
+      this.setState({ outgoing_match_requests: json_4 });
+    } catch (error) {
+      console.log(error);
     }
 
     try {
       const response_5 = await axios.get(url_saved);
       const json_5 = response_5.json();
-      this.setState({ saved_profiles: json_5 })
-    } catch(error) {
-      console.log(error)
+      this.setState({ saved_profiles: json_5 });
+    } catch (error) {
+      console.log(error);
     }
 
     try {
@@ -194,33 +193,14 @@ class Home extends React.Component {
             <Route path="/mentors">
               <Mentors user_id={user_id} token={token} />
             </Route>
-            <Route path="/all_matches">
-
-            </Route>
-            <Route path="/incoming_match_requests">
-
-            </Route>
-            <Route path="/favorite_matches">
-
-            </Route>
-            <Route path="/outgoing_match_requests">
-
-            </Route>
-            <Route path="/saved_profiles">
-
-            </Route>
-            <Route path="/filter">
-
-            </Route>
-            <Route>
-
-            </Route>
-            <Route>
-
-            </Route>
-
-
-            
+            <Route path="/all_matches"></Route>
+            <Route path="/incoming_match_requests"></Route>
+            <Route path="/favorite_matches"></Route>
+            <Route path="/outgoing_match_requests"></Route>
+            <Route path="/saved_profiles"></Route>
+            <Route path="/filter"></Route>
+            <Route></Route>
+            <Route></Route>
           </Switch>
 
           <HomePageBadgeGrid users={users} />
