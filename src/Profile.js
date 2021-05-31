@@ -3,6 +3,9 @@ import Button from "@material-ui/core/Button";
 const React = require("react");
 const axios = require("axios");
 
+const user_id = localStorage.getItem("user_id");
+const token = localStorage.getItem("token");
+
 
 const url = "https://student-network-backend-stage.herokuapp.com/userprofile"
 

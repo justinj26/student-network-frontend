@@ -11,8 +11,9 @@ const React = require("react");
 const countries_json = require("all-countries-and-cities-json");
 // thought: user likely from a different page
 // const user = {};
-const basic_login_url = "/signup";
-const user_info_url = "/updateprofile"
+const signup_url = "/signup";
+const login_url = "/login"
+const user_info_url = "/updateprofile";
 
 const student_status = ["High School", "Undergraduate", "Graduate"];
 const years = ["1", "2", "3", "4"];
@@ -118,46 +119,57 @@ class SignUp extends React.Component {
       event.preventDefault();
       event.stopPropagation();
     }
-    
+
     event.preventDefault();
 
+    const interests = "".concat(this.state.data.extracurricular1, " ", this.state.data.extracurricular2, " ", this.state.data.extracurricular3)
+
     const user = {
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      email: this.state.email,
-      password: this.state.password,
-      mentor_capacity: false
+      "first_name": this.state.first_name,
+      "last_name": this.state.last_name,
+      "e-mail": this.state.email,
+      "password": this.state.password,
+      // mentor_capacity: false
+      "nationality": this.state.data.nationality,
+      // telephone: this.state.data.telephone,
+      "education_level": this.state.data.student_status,
+      // student_year: this.state.data.student_year,
+      // location_city: this.state.data.location_city,
+      "school": this.state.data.school_name,
+      "interests": interests
+      // potential_major: this.state.data.potential_major
+
     };
 
     try {
-      axios.post(basic_login_url, user);
+      axios.post(signup_url, user);
     } catch (error) {
       alert(error.message);
-    }
-    const user_info = {  
-      nationality: this.state.data.nationality,
-      telephone: this.state.data.telephone,
-      student_status: this.state.data.student_status,
-      student_year: this.state.data.student_year,
-      location_city: this.state.data.location_city,
-      school_name: this.state.data.school_name,
-      potential_major: this.state.data.potential_major,
-      extracurricular1: this.state.data.extracurricular1,
-      extracurricular2: this.state.data.extracurricular2,
-      extracurricular3: this.state.data.extracurricular3,
-      fun_fact: this.state.data.fun_fact
     }
 
-    try {
-      axios.post(user_info_url, user_info);
-    } catch (error) {
-      alert(error.message);
-    }
+    
+    // const user_info = {
+    //   nationality: this.state.data.nationality,
+    //   telephone: this.state.data.telephone,
+    //   student_status: this.state.data.student_status,
+    //   student_year: this.state.data.student_year,
+    //   location_city: this.state.data.location_city,
+    //   school_name: this.state.data.school_name,
+    //   potential_major: this.state.data.potential_major,
+    //   // extracurricular1: this.state.data.extracurricular1,
+    //   // extracurricular2: this.state.data.extracurricular2,
+    //   // extracurricular3: this.state.data.extracurricular3,
+    //   // fun_fact: this.state.data.fun_fact
+    // };
+
+    // try {
+    //   axios.post(user_info_url, user_info);
+    // } catch (error) {
+    //   alert(error.message);
+    // }
 
     this.setState({ validated: true });
   }
-
-  
 
   render() {
     let years_filter =

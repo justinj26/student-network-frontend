@@ -29,13 +29,12 @@ export default function App() {
   // some setup, to where if a user is present, go to home page
   // if not, go to Welcome page
 
-
   // const display = (user) ? <Home user={user} > : <Login>
 
-  
   return (
     <div className="App">
       <Home />
+      {/* <Login /> */}
       {/* <Filter /> */}
       <MatchesAndRequests />
       {/* {display} */}

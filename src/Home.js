@@ -20,7 +20,7 @@ const token = localStorage.getItem("token");
 const url = "https://student-network-backend-stage.herokuapp.com/userprofile";
 
 const url_all =
-  "https://student-network-backend-stage.herokuapp.com/getallmatches";
+  "/getallmatches";
 const url_incoming =
   "https://student-network-backend-stage.herokuapp.com/getincomingrequests";
 const url_favorite =

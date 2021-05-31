@@ -31,7 +31,7 @@ class MatchesAndRequests extends React.Component {
         <div className={styles.matches_and_requests_box}>
           <div>
             <Button component={RouterLink} to="home/all_matches"><ChevronRightIcon /></Button>  
-            Favorite Matches
+             Matches
           </div>
           <div>
             <Button component={RouterLink} to="home/incoming_match_requests"><ChevronRightIcon /></Button>  
