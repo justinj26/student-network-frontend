@@ -17,13 +17,18 @@ import { Switch, Route, Link as RouterLink } from "react-router-dom";
 const user_id = localStorage.getItem("user_id");
 const token = localStorage.getItem("token");
 
-const url = "/userprofile";
+const url = "https://student-network-backend-stage.herokuapp.com/userprofile";
 
-const url_all = "/getallmatches";
-const url_incoming = "/getincomingrequests";
-const url_favorite = "/getfavoritematches";
-const url_outgoing = "/getoutgoingrequests";
-const url_saved = "/getsavedprofiles";
+const url_all =
+  "https://student-network-backend-stage.herokuapp.com/getallmatches";
+const url_incoming =
+  "https://student-network-backend-stage.herokuapp.com/getincomingrequests";
+const url_favorite =
+  "https://student-network-backend-stage.herokuapp.com/getfavoritematches";
+const url_outgoing =
+  "https://student-network-backend-stage.herokuapp.com/getoutgoingrequests";
+const url_saved =
+  "https://student-network-backend-stage.herokuapp.com/getsavedprofiles";
 
 const users = [
   {
@@ -152,10 +157,10 @@ class Home extends React.Component {
           {/* <Buttonoolbar className="mr-2" aria-label="Toolbar with button groups">
             <ButtonGroup className="mr-2" aria-label="First group"> */}
           <Button component={RouterLink} to="/home">
-            Home
+            <b>Home</b>
           </Button>
-          <Button component={RouterLink} to="home/user">
-            Profile
+          <Button component={RouterLink} to="/user">
+            <b>Profile</b>
           </Button>
           {/* <Button component={RouterLink} to="">
             Mentors
@@ -163,11 +168,11 @@ class Home extends React.Component {
           <Button component={RouterLink} to="/home/inbox">
             <b>Inbox</b>
           </Button>
-          <Button component={RouterLink} to="/home/Calendar">
-            Calendar
+          <Button component={RouterLink} to="/home/calendar">
+            <b>Calendar</b>
           </Button>
-          <Button component={RouterLink} to="home/search">
-            Search
+          <Button component={RouterLink} to="/home/search">
+            <b>Search</b>
           </Button>
           {/* <Button
             variant="outlined"
@@ -187,7 +192,7 @@ class Home extends React.Component {
         <div className={styles.main_grid}>
           <Switch>
             <Route path="/updateprofile"></Route>
-            <Route path="/profile">
+            <Route path="/user">
               <Profile />
             </Route>
             <Route path="/mentors">
@@ -199,11 +204,16 @@ class Home extends React.Component {
             <Route path="/outgoing_match_requests"></Route>
             <Route path="/saved_profiles"></Route>
             <Route path="/filter"></Route>
+            <Route path="/home/search"></Route>
+            <Route path="/home">
+              <HomePageBadgeGrid users={users} />
+            </Route>
+            <Route></Route>
             <Route></Route>
             <Route></Route>
           </Switch>
 
-          <HomePageBadgeGrid users={users} />
+          
         </div>
       </div>
     );

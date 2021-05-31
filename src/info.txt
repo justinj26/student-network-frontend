@@ -6,3 +6,17 @@ password
 thought:
 
 capitalize school names for standardization
+
+{
+    "email": "jjames11799@gmail.com",
+    "password": "wowser",
+    "first_name": "Justin",
+    "last_name": "James",
+    "nationality": "UNITED STATES OF AMERICA",
+    "interests": ["TENNIS", "COMPUTER SCIENCE", "FOOTBALL (SOCCER)", "FRENCH CLUB"],
+    "education_level": "UNDERGRADUATE",
+    "school": "YALE UNIVERSITY",
+    "work_email": "justin.james@yale.edu"
+}
+
+the above json object worked for sign up

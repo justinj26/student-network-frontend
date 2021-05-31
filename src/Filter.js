@@ -6,6 +6,7 @@ import majors from "./majors";
 import styles from "./Filter.module.css";
 import { LInk as RouterLink } from "react-router-dom";
 
+const majors_mod = majors.sort();
 const countries_json = require("all-countries-and-cities-json");
 const student_status = ["High School", "Undergraduate", "Graduate"];
 // const years = ["1", "2", "3", "4"];
@@ -20,7 +21,7 @@ const React = require("react");
 const axios = require("axios");
 
 // url to get all users
-const url = "/users";
+const url = "https://student-network-backend-stage.herokuapp.com/users";
 
 class Filter extends React.Component {
   constructor(props) {
@@ -207,7 +208,7 @@ class Filter extends React.Component {
                 onChange={this.handleNationality}
               >
                 <option>{""}</option>
-                {majors.map((major) => (
+                {majors_mod.map((major) => (
                   <option>{major}</option>
                 ))}
               </select>
@@ -220,7 +221,7 @@ class Filter extends React.Component {
                   onChange={this.handleNationality}
                 >
                   <option>{""}</option>
-                  {majors.map((major) => (
+                  {majors_mod.map((major) => (
                     <option>{major}</option>
                   ))}
                 </select>
@@ -232,7 +233,7 @@ class Filter extends React.Component {
                   onChange={this.handleNationality}
                 >
                   <option>{""}</option>
-                  {majors.map((major) => (
+                  {majors_mod.map((major) => (
                     <option>{major}</option>
                   ))}
                 </select>

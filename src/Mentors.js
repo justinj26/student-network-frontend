@@ -11,7 +11,7 @@ const axios = require("axios");
 //   }
 // }
 
-const url = "/getallmentors"
+const url = "https://student-network-backend-stage.herokuapp.com/getallmentors"
 
 export default function Mentors(props) {
 
