@@ -9,7 +9,7 @@ import Row from "react-bootstrap/Row";
 const axios = require("axios");
 const React = require("react");
 
-const url = "/login";
+const url = "https://student-network-backend-stage.herokuapp.com/login";
 
 class Login extends React.Component {
   constructor(props) {
@@ -50,13 +50,19 @@ class Login extends React.Component {
         email: this.state.email,
         password: this.state.password
       };
-
-      const response = await axios.post(url, user);
-      const json = response.json();
+      try {
+        const response = await axios.post(url, user);
+        const json = response.json();
+        localStorage.setItem("user_id", json["user_id"]);
+        localStorage.setItem("token", json["token"]);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error)
+      }
+      
       // store the user in localStorage
-      localStorage.setItem("user_id", json["user_id"]);
-      localStorage.setItem("token", json["token"]);
-      console.log(response.data);
+      
+      
       // <Redirect to="/home" />
     }
   }

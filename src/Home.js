@@ -17,14 +17,18 @@ import { Switch, Route, Link as RouterLink } from "react-router-dom";
 const user_id = localStorage.getItem("user_id");
 const token = localStorage.getItem("token");
 
-const url = "/userprofile";
+const url = "https://student-network-backend-stage.herokuapp.com/userprofile";
 
-const url_all = "/getallmatches";
-const url_incoming = "/getincomingrequests";
-const url_favorite = "/getfavoritematches";
-const url_outgoing = "/getoutgoingrequests";
-const url_saved = "/getsavedprofiles";
-
+const url_all =
+  "https://student-network-backend-stage.herokuapp.com/getallmatches";
+const url_incoming =
+  "https://student-network-backend-stage.herokuapp.com/getincomingrequests";
+const url_favorite =
+  "https://student-network-backend-stage.herokuapp.com/getfavoritematches";
+const url_outgoing =
+  "https://student-network-backend-stage.herokuapp.com/getoutgoingrequests";
+const url_saved =
+  "https://student-network-backend-stage.herokuapp.com/getsavedprofiles";
 
 const users = [
   {
@@ -79,41 +83,41 @@ class Home extends React.Component {
     try {
       const response_1 = await axios.get(url_all);
       const json_1 = response_1.json();
-      this.setState({ all_matches: json_1 })
-    } catch(error) {
-      console.log(error)
+      this.setState({ all_matches: json_1 });
+    } catch (error) {
+      console.log(error);
     }
 
     try {
       const response_2 = await axios.get(url_incoming);
       const json_2 = response_2.json();
-      this.setState({ incoming_match_requests: json_2 })
-    } catch(error) {
-      console.log(error)
+      this.setState({ incoming_match_requests: json_2 });
+    } catch (error) {
+      console.log(error);
     }
 
     try {
       const response_3 = await axios.get(url_favorite);
       const json_3 = response_3.json();
-      this.setState({ favorite_matches: json_3 })
-    } catch(error) {
-      console.log(error)
+      this.setState({ favorite_matches: json_3 });
+    } catch (error) {
+      console.log(error);
     }
 
     try {
       const response_4 = await axios.get(url_outgoing);
       const json_4 = response_4.json();
-      this.setState({ outgoing_match_requests: json_4 })
-    } catch(error) {
-      console.log(error)
+      this.setState({ outgoing_match_requests: json_4 });
+    } catch (error) {
+      console.log(error);
     }
 
     try {
       const response_5 = await axios.get(url_saved);
       const json_5 = response_5.json();
-      this.setState({ saved_profiles: json_5 })
-    } catch(error) {
-      console.log(error)
+      this.setState({ saved_profiles: json_5 });
+    } catch (error) {
+      console.log(error);
     }
 
     try {
@@ -153,10 +157,10 @@ class Home extends React.Component {
           {/* <Buttonoolbar className="mr-2" aria-label="Toolbar with button groups">
             <ButtonGroup className="mr-2" aria-label="First group"> */}
           <Button component={RouterLink} to="/home">
-            Home
+            <b>Home</b>
           </Button>
-          <Button component={RouterLink} to="home/user">
-            Profile
+          <Button component={RouterLink} to="/user">
+            <b>Profile</b>
           </Button>
           {/* <Button component={RouterLink} to="">
             Mentors
@@ -164,11 +168,11 @@ class Home extends React.Component {
           <Button component={RouterLink} to="/home/inbox">
             <b>Inbox</b>
           </Button>
-          <Button component={RouterLink} to="/home/Calendar">
-            Calendar
+          <Button component={RouterLink} to="/home/calendar">
+            <b>Calendar</b>
           </Button>
-          <Button component={RouterLink} to="home/search">
-            Search
+          <Button component={RouterLink} to="/home/search">
+            <b>Search</b>
           </Button>
           {/* <Button
             variant="outlined"
@@ -188,42 +192,28 @@ class Home extends React.Component {
         <div className={styles.main_grid}>
           <Switch>
             <Route path="/updateprofile"></Route>
-            <Route path="/profile">
+            <Route path="/user">
               <Profile />
             </Route>
             <Route path="/mentors">
               <Mentors user_id={user_id} token={token} />
             </Route>
-            <Route path="/all_matches">
-
+            <Route path="/all_matches"></Route>
+            <Route path="/incoming_match_requests"></Route>
+            <Route path="/favorite_matches"></Route>
+            <Route path="/outgoing_match_requests"></Route>
+            <Route path="/saved_profiles"></Route>
+            <Route path="/filter"></Route>
+            <Route path="/home/search"></Route>
+            <Route path="/home">
+              <HomePageBadgeGrid users={users} />
             </Route>
-            <Route path="/incoming_match_requests">
-
-            </Route>
-            <Route path="/favorite_matches">
-
-            </Route>
-            <Route path="/outgoing_match_requests">
-
-            </Route>
-            <Route path="/saved_profiles">
-
-            </Route>
-            <Route path="/filter">
-
-            </Route>
-            <Route>
-
-            </Route>
-            <Route>
-
-            </Route>
-
-
-            
+            <Route></Route>
+            <Route></Route>
+            <Route></Route>
           </Switch>
 
-          <HomePageBadgeGrid users={users} />
+          
         </div>
       </div>
     );

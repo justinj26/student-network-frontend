@@ -462,7 +462,7 @@ class UpdateProfile extends React.Component {
               <Button
                 variant="contained"
                 color="primary"
-                onChange={this.handleSubmit}
+                onClick={this.handleSubmit}
                 type="submit"
               >
                 Sign Up
